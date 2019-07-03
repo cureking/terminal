@@ -1,0 +1,67 @@
+# rabbitmq 消费端配置
+spring:
+  rabbitmq:
+    listener:
+      simple:
+        concurrency: 5
+        max-concurrency: 10
+        acknowledge-mode: manual
+        # 限流
+        prefetch: 1
+    host: "47.92.249.250"
+    #    host: "localhost"
+    port: 5672
+    username: "admin"
+    password: "123456"
+    #    host: "localhost"
+    #    port: 5672
+    #    username: "guest"
+    #    password: "guest"
+    virtual-host: "/"
+    connection-timeout: 15000
+
+  # redis 配置  // 先通过手动配置吧，之后实现自动注入
+#  redis:
+#    host: "47.92.249.250"
+#    #    host: "localhost"
+#    #    host: "192.168.199.199"
+#    port: 6379
+#    jedis:
+#      pool:
+#        max-active: 20
+#        max-idle: 10
+#        max-wait: 10000   # 这里有点糊糊的，不知道Duration配置，也不知道单位问题。但是加了这条，确实不会再等待一分钟
+#        min-idle: 2
+
+
+mybatis:
+  config-location: classpath:mybatis-config.xml
+  mapper-locations: classpath:mapper/*.xml
+  type-aliases-package: com.renewable.terminal.pojo
+
+
+spring.datasource:
+#  url: jdbc:mysql://47.92.249.250:3306/gateway_origin?characterEncoding=utf-8
+  url: jdbc:mysql://localhost:3306/gateway_origin?characterEncoding=utf-8&&useSSL=false
+  #  username: root
+  username: renewable
+  password: 123
+  driver-class-name: com.mysql.jdbc.Driver
+  initialSize: 20
+  maxActive: 50
+  maxIdle: 20
+  minIdle: 10
+  maxWait: 10
+  defaultAutoCommit: true
+  minEvictableIdleTimeMillis: 3600000
+
+
+# logger
+logging:
+  file: logs/terminal.log
+info:
+  name: infoname
+
+# server
+server:
+  port: 8050
