@@ -77,7 +77,7 @@ class SerialListener implements SerialPortEventListener {
 						}
 						//todo 3.7数据处理
 
-
+						log.info("serialListener has listened the data:{}.", Arrays.toString(data));
 						//数据的处理，传感器策略选择
 						switch (data[0]) {
 							case Const.SensorType.Inclination1:

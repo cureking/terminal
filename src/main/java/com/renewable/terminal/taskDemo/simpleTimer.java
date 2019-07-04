@@ -44,21 +44,6 @@ public class simpleTimer {
 	public void requireSerialData() {
 		log.info("请求监测数据定时任务启动");
 
-//		System.out.println("simpleTimer first task start.currentTime:" + System.currentTimeMillis());
-//
-//		ServerResponse<byte[]> serverResponse = InclinationDeal526T.command2Origin(00, InclinationConst.InclinationSensor1Enum.READALL);
-//
-//		if (!serverResponse.isSuccess()) {
-//			log.error("error");
-//			System.out.println("simpleTimer data transfer failure");
-//		} else {
-//			byte[] originArray = serverResponse.getData();
-//			System.out.println(Arrays.toString(originArray));
-//			serialPool.sendData("COM6", originArray);
-//
-//		}
-//		System.out.println("simpleTimer second task end.currentTime:" + System.currentTimeMillis());
-
 		iSerialSensorService.taskLoadFromSerialSensor();
 
 		log.info("请求定时任务结束");

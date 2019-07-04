@@ -23,6 +23,7 @@ import org.springframework.stereotype.Service;
 
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Date;
 import java.util.List;
 import java.util.concurrent.TimeoutException;
@@ -165,6 +166,8 @@ public class ISerialSensorServiceImpl implements ISerialSensorService {
 		if (portNameList == null || portNameList.size() == 0) {
 			return ServerResponse.createByErrorMessage("the portNameList is null or the size of the portNameList is zero !");
 		}
+
+		log.info("start serialSensorRefresh: the serialSensorList is ", portNameList);
 
 		// 2.组装serialSensorList中的serialSensor（除了port外，其他设置为默认值即可，另外不设置ID）
 		List<SerialSensor> serialSensorList = this.serialSensorListGeneratorByPort(portNameList);

@@ -21,21 +21,8 @@ public class SerialSensorInit {
 
 	public ServerResponse init() {
 
-		System.out.println("SerialSensorInit start");
-
-
-		log.info(GuavaCache.getKey(CacheConstant.TERMINAL_ID));
-
-
-		if (GuavaCache.getKey(CacheConstant.TERMINAL_ID) == null ||Integer.parseInt(GuavaCache.getKey(CacheConstant.TERMINAL_ID)) > 60000){
-			try {
-				Thread.sleep(5000);
-			} catch (InterruptedException e) {
-				e.printStackTrace();
-			}
-		}
-
-		log.info(GuavaCache.getKey(CacheConstant.TERMINAL_ID));
+		log.info("start NO.{} terminal serialSensorInit",
+				GuavaCache.getKey(CacheConstant.TERMINAL_ID));
 
 		ServerResponse serialSensorInitResponse = iSerialSensorService.refresh();     // 这里的serialSensor初始化，会带动关联的sensorRegister与initializationInclination等初始化。   （终于理清楚这里面应有的逻辑顺序了，逻辑实体建立于物理实体上）
 		if (serialSensorInitResponse.isFail()) {

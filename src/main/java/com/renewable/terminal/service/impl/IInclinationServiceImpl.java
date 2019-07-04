@@ -119,7 +119,6 @@ public class IInclinationServiceImpl implements IInclinationService {
 			serverResponse = InclinationDeal526T.origin2Object(originBuffer);
 		}
 
-
 		if (serverResponse == null) {
 			return ServerResponse.createByErrorMessage("can't find a sensor with the data array:" + Arrays.toString(originBuffer));
 		}
@@ -129,6 +128,8 @@ public class IInclinationServiceImpl implements IInclinationService {
 		}
 
 		Inclination inclination = serverResponse.getData();
+		log.info("the originData has transfer to formatData(Inclination) :{}", inclination.toString());
+
 		//放入计算后，不含初始角度的合倾角与对应方位角
 		double[] resultTDArray = calAngleTotal(inclination.getAngleX(), inclination.getAngleY());
 		inclination.setAngleTotal(resultTDArray[0]);

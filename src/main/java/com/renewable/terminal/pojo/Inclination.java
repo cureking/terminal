@@ -1,7 +1,9 @@
 package com.renewable.terminal.pojo;
 
-import java.util.Date;
+import lombok.ToString;
 
+import java.util.Date;
+@ToString
 public class Inclination {
 	private Long id;
 

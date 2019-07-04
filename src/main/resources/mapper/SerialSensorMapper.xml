@@ -195,6 +195,7 @@
         <if test="terminalId != null">
             and terminal_id = #{terminalId}
         </if>
+        limit 1
     </select>
     <select id="listSeriaLSensor" resultMap="BaseResultMap">
         select
