@@ -1,89 +1,38 @@
 package com.renewable.terminal.extend.driven;
 
+import lombok.extern.slf4j.Slf4j;
+import org.springframework.context.annotation.Bean;
+import org.springframework.stereotype.Component;
+
 import javax.sound.sampled.*;
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.io.File;
+import java.nio.file.Path;
+import java.util.Date;
+
+import static com.renewable.terminal.extend.driven.AudioConstant.AUDIO_CLEAN_DURATION;
+import static com.renewable.terminal.extend.driven.AudioConstant.AUDIO_FILE_DURATION;
 
 /**
  * @Description：
  * @Author: jarry
  */
-public class AudioRecorder extends JFrame {
+@Component
+@Slf4j
+public class AudioRecorder {
 
 	private static final long serialVersionUID = 1L;
 
-	AudioFormat audioFormat;
-	TargetDataLine targetDataLine;
+	private static AudioFormat audioFormat;
+	private static TargetDataLine targetDataLine;
 
-	final JButton captureBtn = new JButton("Capture");
-	final JButton stopBtn = new JButton("Stop");
-
-	final JPanel btnPanel = new JPanel();
-	final ButtonGroup btnGroup = new ButtonGroup();
-	final JRadioButton aifcBtn = new JRadioButton("AIFC");
-	final JRadioButton aiffBtn = new JRadioButton("AIFF");
-	final JRadioButton auBtn = new JRadioButton("AU", true);
-	final JRadioButton sndBtn = new JRadioButton("SND");
-	final JRadioButton waveBtn = new JRadioButton("WAVE");
-
-	public static void main(String args[]) {
-		new AudioRecorder();
-	}// end main
-
-	/**
-	 * Java的SWING页面建立，服务器不需要
-	 */
-	public AudioRecorder() {
-		captureBtn.setEnabled(true);
-		stopBtn.setEnabled(false);
-
-		captureBtn.addActionListener(new ActionListener() {
-										 @Override
-										 public void actionPerformed(ActionEvent e) {
-											 captureBtn.setEnabled(false);
-											 stopBtn.setEnabled(true);
-											 captureAudio();
-										 }
-									 }
-		);
-
-		stopBtn.addActionListener(new ActionListener() {
-									  @Override
-									  public void actionPerformed(ActionEvent e) {
-										  captureBtn.setEnabled(true);
-										  stopBtn.setEnabled(false);
-										  targetDataLine.stop();
-										  targetDataLine.close();
-									  }
-								  }
-		);
-
-		getContentPane().add(captureBtn);
-		getContentPane().add(stopBtn);
-
-		btnGroup.add(aifcBtn);
-		btnGroup.add(aiffBtn);
-		btnGroup.add(auBtn);
-		btnGroup.add(sndBtn);
-		btnGroup.add(waveBtn);
-
-		btnPanel.add(aifcBtn);
-		btnPanel.add(aiffBtn);
-		btnPanel.add(auBtn);
-		btnPanel.add(sndBtn);
-		btnPanel.add(waveBtn);
-
-		getContentPane().add(btnPanel);
-
-		getContentPane().setLayout(new FlowLayout());
-//		setTitle("Copyright 2003, R.G.Baldwin");
-		setDefaultCloseOperation(EXIT_ON_CLOSE);
-		setSize(300, 120);
-		setVisible(true);
-	}
+//	@Bean
+//	public static AudioRecorder AudioRecorder(){
+//		return new AudioRecorder();
+//	}
 
 	/**
 	 * 开始声音抓取（新建了一个DataLine）
@@ -94,10 +43,22 @@ public class AudioRecorder extends JFrame {
 			DataLine.Info dataLineInfo = new DataLine.Info(TargetDataLine.class, audioFormat);
 			targetDataLine = (TargetDataLine) AudioSystem.getLine(dataLineInfo);
 
-			new CaptureThread().start();
+			// 新建CaptureThread()，这里是多线程的任务（也许1分钟时长应该设置在这里）
+			Thread audioThread = new CaptureThread();
+			audioThread.start();
+			log.info("audio capture start");
+
+			Thread.sleep(AUDIO_FILE_DURATION);
+			targetDataLine.stop();
+			targetDataLine.close();
+			audioThread.interrupt();
+			log.info("audio capture end");
+
 		} catch (Exception e) {
 			e.printStackTrace();
-			System.exit(0);
+			// 0表示正常退出当前虚拟机（当然服务器是不可以这样的，关了虚拟机，服务器还咋办。。。）
+			// System.exit(0);
+			log.error(e.toString());
 		}
 	}
 
@@ -130,22 +91,21 @@ public class AudioRecorder extends JFrame {
 			AudioFileFormat.Type fileType = null;
 			File audioFile = null;
 
-			if (aifcBtn.isSelected()) {
-				fileType = AudioFileFormat.Type.AIFC;
-				audioFile = new File("junk.aifc");
-			} else if (aiffBtn.isSelected()) {
-				fileType = AudioFileFormat.Type.AIFF;
-				audioFile = new File("junk.aif");
-			} else if (auBtn.isSelected()) {
-				fileType = AudioFileFormat.Type.AU;
-				audioFile = new File("junk.au");
-			} else if (sndBtn.isSelected()) {
-				fileType = AudioFileFormat.Type.SND;
-				audioFile = new File("junk.snd");
-			} else if (waveBtn.isSelected()) {
-				fileType = AudioFileFormat.Type.WAVE;
-				audioFile = new File("junk.wav");
+			// 这里我们先简单一些。首先由于是本地文件操作，故不建立文件服务器，其次，这里建立简单目录
+			fileType = AudioFileFormat.Type.WAVE;
+
+			// 以小时为每分钟文件的标志
+			String fileName = "audio_"+String.valueOf(System.currentTimeMillis()/AUDIO_CLEAN_DURATION);
+			String fileExtension = ".wav";
+
+//			audioFile = new File("junk.wav");
+			String path = "audio";
+			File fileDir = new File(path);
+			if (!fileDir.exists()){
+				fileDir.setWritable(true);
+				fileDir.mkdirs();
 			}
+			audioFile = new File(path,fileName+fileExtension);
 
 			try {
 				targetDataLine.open(audioFormat);
@@ -157,6 +117,12 @@ public class AudioRecorder extends JFrame {
 
 		}
 	}
+
+
+	public static void main(String args[]) {
+		AudioRecorder audioRecorder = new AudioRecorder();
+		audioRecorder.captureAudio();
+	}// end main
 
 }
 

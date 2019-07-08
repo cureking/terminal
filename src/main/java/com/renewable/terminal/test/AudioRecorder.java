@@ -83,6 +83,7 @@ public class AudioRecorder extends JFrame {
 
 		// 注册匿名的听众
 		captureBtn.addActionListener(new ActionListener() {
+			@Override
 										 public void actionPerformed(ActionEvent e) {
 											 captureBtn.setEnabled(false);
 											 stopBtn.setEnabled(true);
@@ -95,6 +96,7 @@ public class AudioRecorder extends JFrame {
 		);// end addActionListener()
 
 		stopBtn.addActionListener(new ActionListener() {
+			@Override
 									  public void actionPerformed(ActionEvent e) {
 										  captureBtn.setEnabled(true);
 										  stopBtn.setEnabled(false);
@@ -182,6 +184,7 @@ public class AudioRecorder extends JFrame {
 	//内部类从麦克风中捕获数据 
 	//并将其写入到输出的音频文件。
 	class CaptureThread extends Thread {
+		@Override
 		public void run() {
 			AudioFileFormat.Type fileType = null;
 			File audioFile = null;

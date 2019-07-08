@@ -21,6 +21,7 @@ import java.util.Map;
 import java.util.concurrent.TimeoutException;
 
 import static com.renewable.terminal.common.constant.CacheConstant.TERMINAL_ID;
+import static com.renewable.terminal.common.constant.CacheConstant.TERMINAL_MAC;
 
 /**
  * @Description：
@@ -48,6 +49,11 @@ public class SerialSensorConsumer {
 	public void messageOnSerialSensor(@Payload String serialSensorStr, @Headers Map<String, Object> headers, Channel channel) throws IOException {
 
 		SerialSensor serialSensor = JsonUtil.string2Obj(serialSensorStr, SerialSensor.class);
+
+		if (!GuavaCache.getKey(TERMINAL_ID).equals(serialSensor.getTerminalId())){
+			log.info("refuse target serialSensor with terminalId({}).current_terminalId({})",serialSensor.getTerminalId(), GuavaCache.getKey(TERMINAL_ID));
+			return;
+		}
 
 		// 2.业务逻辑
 		ServerResponse response = iSerialSensorService.receiveSerialSensorFromMQ(serialSensor);

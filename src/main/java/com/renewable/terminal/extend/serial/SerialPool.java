@@ -10,6 +10,7 @@ import org.springframework.stereotype.Component;
 
 import javax.annotation.PostConstruct;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Iterator;
 import java.util.concurrent.ConcurrentHashMap;
 
@@ -89,7 +90,7 @@ public class SerialPool {
 
 
 	public ServerResponse sendData(String portName, byte[] originBuffer) {
-		System.out.println(portName + " sendData function start:" + System.currentTimeMillis());
+		log.info(portName + " sendData function start:" + Arrays.toString(originBuffer));
 		try {
 			SerialPortUtil.sendToPort(serialPortConcurrentHashMap.get(portName), originBuffer);
 			System.out.println("sendData end");

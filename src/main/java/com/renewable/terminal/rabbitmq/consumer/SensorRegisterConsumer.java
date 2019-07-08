@@ -6,6 +6,7 @@ import com.renewable.terminal.common.ServerResponse;
 import com.renewable.terminal.pojo.SensorRegister;
 import com.renewable.terminal.service.ISensorRegisterService;
 import com.renewable.terminal.util.JsonUtil;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.amqp.rabbit.annotation.*;
 import org.springframework.amqp.support.AmqpHeaders;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -25,6 +26,7 @@ import static com.renewable.terminal.common.constant.CacheConstant.TERMINAL_ID;
  * @Description：
  * @Author: jarry
  */
+@Slf4j
 @Component("SensorRegisterConsumer")
 public class SensorRegisterConsumer {
 //
@@ -115,6 +117,11 @@ public class SensorRegisterConsumer {
 										Channel channel) throws Exception {
 		//消费者操作
 		SensorRegister sensorRegister = JsonUtil.string2Obj(sensorRegisterStr, SensorRegister.class);
+
+		if (!GuavaCache.getKey(TERMINAL_ID).equals(sensorRegister.getTerminalId())){
+			log.info("refuse target sensorRegister with terminalId({}).current_terminalId({})",sensorRegister.getTerminalId(), GuavaCache.getKey(TERMINAL_ID));
+			return;
+		}
 
 		ServerResponse response = iSensorRegisterService.receiveSensorRegisterFromMQ(sensorRegister);
 

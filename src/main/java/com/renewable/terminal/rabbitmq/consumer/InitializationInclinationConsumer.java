@@ -6,6 +6,7 @@ import com.renewable.terminal.common.ServerResponse;
 import com.renewable.terminal.pojo.InitializationInclination;
 import com.renewable.terminal.service.IInitializationInclinationService;
 import com.renewable.terminal.util.JsonUtil;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.amqp.rabbit.annotation.*;
 import org.springframework.amqp.support.AmqpHeaders;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -25,6 +26,7 @@ import static com.renewable.terminal.common.constant.CacheConstant.TERMINAL_ID;
  * @Description：
  * @Author: jarry
  */
+@Slf4j
 @Component("InitializationInclinationConsumer")
 public class InitializationInclinationConsumer {
 
@@ -117,6 +119,11 @@ public class InitializationInclinationConsumer {
 		if (initializationInclination == null){
 			Long deliveryTag = (Long) headers.get(AmqpHeaders.DELIVERY_TAG);
 			channel.basicAck(deliveryTag, false);
+		}
+
+		if (!GuavaCache.getKey(TERMINAL_ID).equals(initializationInclination.getTerminalId())){
+			log.info("refuse target initializationInclination with terminalId({}).current_terminalId({})",initializationInclination.getTerminalId(), GuavaCache.getKey(TERMINAL_ID));
+			return;
 		}
 
 		ServerResponse response = iInitializationInclinationService.receiveInitializationInclinationFromMQ(initializationInclination);

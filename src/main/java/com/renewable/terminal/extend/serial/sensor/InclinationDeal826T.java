@@ -24,7 +24,7 @@ public class InclinationDeal826T {
 	public static ServerResponse origin2Object(byte[] originBuffer) {
 
 		//源数据数组转换：signed2unsigned   //但是除了数据域，还有别的部分
-		System.out.println(Arrays.toString(originBuffer));
+//		System.out.println(Arrays.toString(originBuffer));
 
 		//对Byte的命令字数据进行补位处理（确保为正，便于处理）
 		int command = originBuffer[3] & 0xFF;
@@ -118,13 +118,13 @@ public class InclinationDeal826T {
 		double origin_X = origin2Double(OtherUtil.subBytes(originData, 4, 4));
 		double origin_Y = origin2Double(OtherUtil.subBytes(originData, 8, 4));
 		double origin_T = origin2Double(OtherUtil.subBytes(originData, 12, 4));
-		System.out.println("originData:" + Arrays.toString(originData));
-		System.out.println("subByte:" + Arrays.toString(OtherUtil.subBytes(originData, 7, 3)));
-		System.out.println("origin_X:" + origin_X);
+//		System.out.println("originData:" + Arrays.toString(originData));
+//		System.out.println("subByte:" + Arrays.toString(OtherUtil.subBytes(originData, 7, 3)));
 		inclination.setAngleX(origin_X);
 		inclination.setAngleY(origin_Y);
 		inclination.setTemperature(origin_T);
 		//该数据的create_time由mybatis的mapper中now()函数控制
+		System.out.println("origin_X:" + origin_X);
 		System.out.println("origin_Y:" + origin_Y);
 		System.out.println("origin_T:" + origin_T);
 		return inclination;
@@ -251,7 +251,7 @@ public class InclinationDeal826T {
 //        byte[] originDataSplit = OtherUtil.arraySplitByByte(originData);
 		byte[] originDataSplit = OtherUtil.arraySplitByInt(bcdArray2intArray(originData));
 		double result = 0;
-		System.out.println(Arrays.toString(originDataSplit));
+//		System.out.println(Arrays.toString(originDataSplit));
 
 		int signedCount = 1;
 		int integerCount = 3;
