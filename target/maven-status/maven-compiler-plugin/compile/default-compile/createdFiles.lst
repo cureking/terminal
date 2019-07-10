@@ -88,6 +88,7 @@ com\renewable\terminal\rabbitmq\producer\TerminalProducer.class
 com\renewable\terminal\extend\driven\AudioRecorderPanel$1.class
 com\renewable\terminal\test\testVoice.class
 com\renewable\terminal\extend\serial\sensor\InclinationDeal826TTemp.class
+com\renewable\terminal\controller\portal\WarningController.class
 com\renewable\terminal\common\constant\AudioConstant.class
 com\renewable\terminal\common\ResponseCode.class
 com\renewable\terminal\rabbitmq\consumer\InitializationInclinationConsumer.class
@@ -98,6 +99,7 @@ com\renewable\terminal\pojo\WarningEliminate.class
 com\renewable\terminal\service\impl\IWarningServiceImpl.class
 com\renewable\terminal\test\AudioRecorder$2.class
 com\renewable\terminal\pojo\Inclination.class
+com\renewable\terminal\controller\backend\TerminalManageController.class
 com\renewable\terminal\common\constant\InitializationConstant$InitializationStatusEnum.class
 com\renewable\terminal\pojo\Terminal.class
 com\renewable\terminal\controller\backend\SensorRegisterManageController.class

@@ -73,7 +73,7 @@ public class IInitializationInclinationServiceImpl implements IInitializationInc
 
 		int countRow = initializationInclinationMapper.updateByPrimaryKeySelective(initializationInclinationUpdate);
 		if (countRow == 0) {
-			return ServerResponse.createByErrorMessage("initialization update fail !");
+			return ServerResponse.createByErrorMessage("initialization update fail !"+initializationInclinationUpdate.toString());
 		}
 		return ServerResponse.createBySuccessMessage("initialization update success .");
 	}
@@ -91,9 +91,9 @@ public class IInitializationInclinationServiceImpl implements IInitializationInc
 
 		// 2-.计算initializationInclination的X,Y
 		ServerResponse initXAndYResponse = this.calXAndY(initializationInclination);
-//		if (initXAndYResponse.isFail()){
-//			return initXAndYResponse;
-//		}
+		if (initXAndYResponse.isFail()){
+			return initXAndYResponse;
+		}
 
 		// 2.数据assemble
 		InitializationInclination initializationInclinationUpdate = this.InitializationInclinationAssemble(initializationInclination);
@@ -185,7 +185,7 @@ public class IInitializationInclinationServiceImpl implements IInitializationInc
 		InitializationInclination initializationInclinationAssemble = new InitializationInclination();
 		initializationInclinationAssemble.setId(initializationInclination.getId());
 		initializationInclinationAssemble.setSensorRegisterId(initializationInclination.getSensorRegisterId());
-		initializationInclinationAssemble.setTerminalId(initializationInclination.getTerminalId());
+		initializationInclinationAssemble.setTerminalId(Integer.parseInt(GuavaCache.getKey(TERMINAL_ID)));
 
 		initializationInclinationAssemble.setRadius(initializationInclination.getRadius());
 		initializationInclinationAssemble.setInitH1(initializationInclination.getInitH1());
@@ -215,7 +215,7 @@ public class IInitializationInclinationServiceImpl implements IInitializationInc
 //			initializationInclinationAssemble.setStatus(InitializationConstant.InitializationStatusEnum.NEED_COMPLETE.getCode());
 //		}
 
-		initializationInclinationAssemble.setCreateTime(new Date());
+
 		initializationInclinationAssemble.setUpdateTime(new Date());
 
 		return initializationInclinationAssemble;
@@ -277,12 +277,13 @@ public class IInitializationInclinationServiceImpl implements IInitializationInc
 
 	private ServerResponse calXAndY(InitializationInclination initializationInclination) {
 		// 数据校验以及数据组装
-		double[][] singlePlaneArray = null;
+		double[][] singlePlaneArray = new double[4][2];
 		double radius;
 		if (initializationInclination.getInitH1() == null) {
 			return ServerResponse.createByErrorMessage("initializationInclination.InitH1 is null !");
 		}
-		singlePlaneArray[0][0] = initializationInclination.getInitH1();
+		double initH1 = initializationInclination.getInitH1();
+		singlePlaneArray[0][0] = initH1;
 		if (initializationInclination.getInitAngle1() == null) {
 			return ServerResponse.createByErrorMessage("initializationInclination.InitAngle1 is null !");
 		}
@@ -346,8 +347,27 @@ public class IInitializationInclinationServiceImpl implements IInitializationInc
 				(Math.cos(p1angel) - Math.cos(p3angel)) * p2h +
 				(Math.cos(p2angel) - Math.cos(p1angel)) * p3h;
 
-		double X = Fx / (F * radius);
-		double Y = Fy / (F * radius);
+		// 为防止出现F与radius出现0的情况，这里作简单校验
+		double X;
+		double Y;
+		if (radius == 0){
+			return ServerResponse.createByErrorMessage("Error: input correct config,please! the radius is zero !");
+		}
+		if (F == 0){
+			if (Fx == 0){
+				X = 1;
+			}else{
+				return ServerResponse.createByErrorMessage("Error: input correct config,please !");
+			}
+			if (Fy == 0){
+				Y = 1;
+			}else{
+				return ServerResponse.createByErrorMessage("Error: input correct config,please !");
+			}
+		}else{
+			X = Fx / (F * radius);
+			Y = Fy / (F * radius);
+		}
 
 		// 根据传感器类型，对X与Y进行数据转换
 		if (initializationInclination.getSensorRegisterId() == null) {

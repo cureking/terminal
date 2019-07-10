@@ -93,6 +93,37 @@ public class ITerminalServiceImpl implements ITerminalService {
 	}
 
 	@Override
+	public ServerResponse updateName(Terminal terminal) {
+		// 1.数据校验
+		if (terminal == null){
+			return ServerResponse.createByErrorMessage("the terminal is null !");
+		}
+		if (terminal.getId() == null || terminal.getName() == null){
+			return ServerResponse.createByErrorMessage("the Id or name of terminal is null ! terminal:"+terminal.toString());
+		}
+
+		// 2.简单数据Assemble
+		Terminal terminalUpdate = new Terminal();
+		terminalUpdate.setId(terminal.getId());
+		terminalUpdate.setName(terminal.getName());
+		terminalUpdate.setUpdateTime(new Date());
+
+		// 3.更新数据
+		Integer countUpdate = terminalMapper.updateByPrimaryKeySelective(terminalUpdate);
+		if (countUpdate == 0){
+			return ServerResponse.createByErrorMessage("terminal updateName fail !");
+		}
+
+		// 4.中控室更新
+		ServerResponse centcontrolUpdateServerResponse = this.uploadTerminalConfig(terminalUpdate);
+		if (centcontrolUpdateServerResponse.isFail()){
+			return centcontrolUpdateServerResponse;
+		}
+
+		return ServerResponse.createBySuccessMessage("terminal updateName success .");
+	}
+
+	@Override
 	public ServerResponse receiveTerminalFromRabbitmq(Terminal terminal) {
 		// 这里可以先行校验缓存
 

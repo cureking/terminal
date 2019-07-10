@@ -1,5 +1,6 @@
 package com.renewable.terminal.service.impl;
 
+import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import com.google.common.collect.Lists;
 import com.renewable.terminal.common.GuavaCache;
 import com.renewable.terminal.common.ServerResponse;
@@ -31,7 +32,7 @@ import static com.renewable.terminal.common.constant.WarningConstant.SensorTypeE
  */
 @Slf4j
 @Service("iWarningServiceImpl")
-public class IWarningServiceImpl implements IWarningService {
+public class IWarningServiceImpl extends ServiceImpl<WarningMapper, Warning> implements IWarningService {
 
 	@Autowired
 	private IInclinationDealInitService iInclinationDealInitService;

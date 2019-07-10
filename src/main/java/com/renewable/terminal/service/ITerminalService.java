@@ -18,4 +18,6 @@ public interface ITerminalService {
 	ServerResponse refreshCacheFromDB();    // 目测这个没有过高的价值，可以先暂时放着，之后进行清理
 
 	ServerResponse refreshConfigFromCent();
+
+	ServerResponse updateName(Terminal terminal);
 }

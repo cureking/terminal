@@ -29,6 +29,7 @@ C:\Users\curek\IdeaProjects\Renewable_Power\terminal\src\main\java\com\renewable
 C:\Users\curek\IdeaProjects\Renewable_Power\terminal\src\main\java\com\renewable\terminal\exception\serial\TooManyListeners.java
 C:\Users\curek\IdeaProjects\Renewable_Power\terminal\src\main\java\com\renewable\terminal\rabbitmq\producer\WarningProducer.java
 C:\Users\curek\IdeaProjects\Renewable_Power\terminal\src\main\java\com\renewable\terminal\pojo\InclinationDealed.java
+C:\Users\curek\IdeaProjects\Renewable_Power\terminal\src\main\java\com\renewable\terminal\controller\portal\WarningController.java
 C:\Users\curek\IdeaProjects\Renewable_Power\terminal\src\main\java\com\renewable\terminal\pojo\WarningEliminate.java
 C:\Users\curek\IdeaProjects\Renewable_Power\terminal\src\main\java\com\renewable\terminal\exception\serial\SerialPortOutputStreamCloseFailure.java
 C:\Users\curek\IdeaProjects\Renewable_Power\terminal\src\main\java\com\renewable\terminal\util\ListUtil.java
@@ -112,6 +113,7 @@ C:\Users\curek\IdeaProjects\Renewable_Power\terminal\src\main\java\com\renewable
 C:\Users\curek\IdeaProjects\Renewable_Power\terminal\src\main\java\com\renewable\terminal\exception\serial\PortInUse.java
 C:\Users\curek\IdeaProjects\Renewable_Power\terminal\src\main\java\com\renewable\terminal\exception\serial\SendDataToSerialPortFailure.java
 C:\Users\curek\IdeaProjects\Renewable_Power\terminal\src\main\java\com\renewable\terminal\pojo\SensorRegister.java
+C:\Users\curek\IdeaProjects\Renewable_Power\terminal\src\main\java\com\renewable\terminal\controller\backend\TerminalManageController.java
 C:\Users\curek\IdeaProjects\Renewable_Power\terminal\src\main\java\com\renewable\terminal\dao\TerminalMapper.java
 C:\Users\curek\IdeaProjects\Renewable_Power\terminal\src\main\java\com\renewable\terminal\rabbitmq\producer\InitializationProducer.java
 C:\Users\curek\IdeaProjects\Renewable_Power\terminal\src\main\java\com\renewable\terminal\controller\portal\SensorController.java

@@ -421,10 +421,10 @@ public class ISerialSensorServiceImpl implements ISerialSensorService {
 			return ServerResponse.createByErrorMessage("the sensorRegisterId is null !");
 		}
 
-		SerialSensor serialSensor = null;
+		SerialSensor serialSensor = new SerialSensor();
 
 		serialSensor = serialSensorMapper.selectBySensorRegisterId(sensorRegisterId);
-		if (sensorRegisterId == null) {
+		if (serialSensor == null) {
 			return ServerResponse.createByErrorMessage("there is no serialSensor with the sensorRegisterId:" + sensorRegisterId);
 		}
 
