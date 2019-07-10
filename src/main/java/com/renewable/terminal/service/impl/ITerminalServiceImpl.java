@@ -102,10 +102,10 @@ public class ITerminalServiceImpl implements ITerminalService {
 
 		// 更新数据库的配置
 		int countRow = 0;
-		if (StringUtils.isNotBlank(terminal.getMac())){
+		if (StringUtils.isNotBlank(terminal.getMac())) {
 			countRow = terminalMapper.updateByMac(terminal);     // 根据mac，对数据库记录进行更新
 		}
-		if (StringUtils.isBlank(terminal.getMac())){
+		if (StringUtils.isBlank(terminal.getMac())) {
 			countRow = terminalMapper.updateByPrimaryKeySelective(terminal);
 		}
 
@@ -156,38 +156,38 @@ public class ITerminalServiceImpl implements ITerminalService {
 
 	private void setCacheByTerminalConfig(Terminal terminal) {
 
-		if (terminal.getId() != null){
+		if (terminal.getId() != null) {
 			GuavaCache.setKey(TERMINAL_ID, terminal.getId().toString());
 		}
 
-		if (terminal.getProjectId() != null){
+		if (terminal.getProjectId() != null) {
 			GuavaCache.setKey(TERMINAL_PROJECT_ID, terminal.getProjectId().toString());
 		}
 
 		String terminalIp = terminal.getIp();
-		if (terminalIp != null){
+		if (terminalIp != null) {
 			GuavaCache.setKey(TERMINAL_IP, terminalIp);
 		}
 
 		String terminalMac = terminal.getMac();
-		if (terminalMac != null){
+		if (terminalMac != null) {
 			GuavaCache.setKey(TERMINAL_MAC, terminalMac);
 		}
 
 		String terminalName = terminal.getName();
-		if (terminalName != null){
+		if (terminalName != null) {
 			GuavaCache.setKey(TERMINAL_NAME, terminalName);
 		}
 
-		if (terminal.getState() != null){
+		if (terminal.getState() != null) {
 			GuavaCache.setKey(TERMINAL_STATE, terminal.getState().toString());
 		}
 
-		if (terminal.getCreateTime() != null){
+		if (terminal.getCreateTime() != null) {
 			GuavaCache.setKey(TERMINAL_CREATE_TIME, terminal.getCreateTime().toString());
 		}
 
-		if (terminal.getUpdateTime() != null){
+		if (terminal.getUpdateTime() != null) {
 			GuavaCache.setKey(TERMINAL_UPDATE_TIME, terminal.getUpdateTime().toString());
 		}
 

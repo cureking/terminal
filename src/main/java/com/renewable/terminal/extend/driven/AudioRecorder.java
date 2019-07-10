@@ -5,34 +5,48 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.stereotype.Component;
 
 import javax.sound.sampled.*;
-import javax.swing.*;
-import java.awt.*;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
 import java.io.File;
-import java.nio.file.Path;
-import java.util.Date;
 
-import static com.renewable.terminal.extend.driven.AudioConstant.AUDIO_CLEAN_DURATION;
-import static com.renewable.terminal.extend.driven.AudioConstant.AUDIO_FILE_DURATION;
+import static com.renewable.terminal.common.constant.AudioConstant.AUDIO_FILE_DURATION;
 
 /**
  * @Description：
  * @Author: jarry
  */
-@Component
 @Slf4j
+@Component
 public class AudioRecorder {
-
 	private static final long serialVersionUID = 1L;
 
 	private static AudioFormat audioFormat;
 	private static TargetDataLine targetDataLine;
 
-//	@Bean
-//	public static AudioRecorder AudioRecorder(){
-//		return new AudioRecorder();
-//	}
+	Thread audioThread = new AudioRecorder.CaptureThread();
+
+	private static class InnerClass {
+		private static AudioRecorder staticInnerClassSingleton = new AudioRecorder();
+	}
+
+	public static AudioRecorder getInstatce() {
+		return InnerClass.staticInnerClassSingleton;
+	}
+
+	@Bean
+	public static AudioRecorder AudioRecorder() {
+		return new AudioRecorder();
+	}
+
+	public void startCapture() {
+		this.captureAudio();
+	}
+
+	public void stopCapture() throws InterruptedException {
+		if (targetDataLine == null) {
+			return;
+		}
+		targetDataLine.stop();
+		targetDataLine.close();
+	}
 
 	/**
 	 * 开始声音抓取（新建了一个DataLine）
@@ -44,15 +58,8 @@ public class AudioRecorder {
 			targetDataLine = (TargetDataLine) AudioSystem.getLine(dataLineInfo);
 
 			// 新建CaptureThread()，这里是多线程的任务（也许1分钟时长应该设置在这里）
-			Thread audioThread = new CaptureThread();
+			audioThread = new AudioRecorder.CaptureThread();
 			audioThread.start();
-			log.info("audio capture start");
-
-			Thread.sleep(AUDIO_FILE_DURATION);
-			targetDataLine.stop();
-			targetDataLine.close();
-			audioThread.interrupt();
-			log.info("audio capture end");
 
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -95,17 +102,17 @@ public class AudioRecorder {
 			fileType = AudioFileFormat.Type.WAVE;
 
 			// 以小时为每分钟文件的标志
-			String fileName = "audio_"+String.valueOf(System.currentTimeMillis()/AUDIO_CLEAN_DURATION);
+			String fileName = String.valueOf(System.currentTimeMillis() / AUDIO_FILE_DURATION);
 			String fileExtension = ".wav";
 
 //			audioFile = new File("junk.wav");
 			String path = "audio";
 			File fileDir = new File(path);
-			if (!fileDir.exists()){
+			if (!fileDir.exists()) {
 				fileDir.setWritable(true);
 				fileDir.mkdirs();
 			}
-			audioFile = new File(path,fileName+fileExtension);
+			audioFile = new File(path, fileName + fileExtension);
 
 			try {
 				targetDataLine.open(audioFormat);
@@ -119,10 +126,34 @@ public class AudioRecorder {
 	}
 
 
-	public static void main(String args[]) {
-		AudioRecorder audioRecorder = new AudioRecorder();
-		audioRecorder.captureAudio();
+	public static void main(String args[]) throws InterruptedException {
+		AudioRecorder audioRecorder2 = new AudioRecorder();
+		audioRecorder2.startCapture();
+		Thread.sleep(5000);
+		audioRecorder2.stopCapture();
+		Thread.sleep(5000);
+		audioRecorder2.startCapture();
+		Thread.sleep(5000);
+		audioRecorder2.stopCapture();
+
+//		openWinExe();
+
+
 	}// end main
 
-}
+	public static void openWinExe() throws InterruptedException {
+		Runtime runtime = Runtime.getRuntime();
+		Process process = null;
 
+		try {
+//			String command = "audio\\tool\\wsrun.exe";
+			String command = "C:\\Program Files (x86)\\Netease\\CloudMusic\\cloudmusic.exe";
+			process = runtime.exec(command);
+		} catch (Exception e) {
+			log.error("error:{}", e.toString());
+		}
+
+		Thread.sleep(8000);
+		process.destroy();
+	}
+}

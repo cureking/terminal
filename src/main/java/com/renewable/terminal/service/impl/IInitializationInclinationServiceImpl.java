@@ -13,7 +13,6 @@ import com.renewable.terminal.service.IInitializationInclinationService;
 import com.renewable.terminal.service.ISerialSensorService;
 import com.renewable.terminal.util.OtherUtil;
 import lombok.extern.slf4j.Slf4j;
-import org.apache.commons.lang3.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -109,8 +108,8 @@ public class IInitializationInclinationServiceImpl implements IInitializationInc
 		}
 
 		// 5.返回成功响应
-		if (initXAndYResponse.isFail()){
-			return ServerResponse.createBySuccessMessage("initializationInclination has updated . "+initXAndYResponse.getMsg());
+		if (initXAndYResponse.isFail()) {
+			return ServerResponse.createBySuccessMessage("initializationInclination has updated . " + initXAndYResponse.getMsg());
 		}
 		return ServerResponse.createBySuccessMessage("initializationInclination has updated .");
 	}
@@ -276,46 +275,46 @@ public class IInitializationInclinationServiceImpl implements IInitializationInc
 		return this.sendInitializationInclination2MQ(initializationInclinationList);
 	}
 
-	private ServerResponse calXAndY(InitializationInclination initializationInclination){
+	private ServerResponse calXAndY(InitializationInclination initializationInclination) {
 		// 数据校验以及数据组装
 		double[][] singlePlaneArray = null;
-		double radius ;
-		if (initializationInclination.getInitH1() == null){
+		double radius;
+		if (initializationInclination.getInitH1() == null) {
 			return ServerResponse.createByErrorMessage("initializationInclination.InitH1 is null !");
 		}
 		singlePlaneArray[0][0] = initializationInclination.getInitH1();
-		if (initializationInclination.getInitAngle1() == null){
+		if (initializationInclination.getInitAngle1() == null) {
 			return ServerResponse.createByErrorMessage("initializationInclination.InitAngle1 is null !");
 		}
 		singlePlaneArray[0][1] = initializationInclination.getInitAngle1();
 
-		if (initializationInclination.getInitH2() == null){
+		if (initializationInclination.getInitH2() == null) {
 			return ServerResponse.createByErrorMessage("initializationInclination.InitH2 is null !");
 		}
 		singlePlaneArray[1][0] = initializationInclination.getInitH2();
-		if (initializationInclination.getInitAngle2() == null){
+		if (initializationInclination.getInitAngle2() == null) {
 			return ServerResponse.createByErrorMessage("initializationInclination.InitAngle2 is null !");
 		}
 		singlePlaneArray[1][1] = initializationInclination.getInitAngle2();
 
-		if (initializationInclination.getInitH3() == null){
+		if (initializationInclination.getInitH3() == null) {
 			return ServerResponse.createByErrorMessage("initializationInclination.InitH3 is null !");
 		}
 		singlePlaneArray[2][0] = initializationInclination.getInitH3();
-		if (initializationInclination.getInitAngle3() == null){
+		if (initializationInclination.getInitAngle3() == null) {
 			return ServerResponse.createByErrorMessage("initializationInclination.InitAngle3 is null !");
 		}
 		singlePlaneArray[2][1] = initializationInclination.getInitAngle3();
 
-		if (initializationInclination.getInitH4() == null){
+		if (initializationInclination.getInitH4() == null) {
 			return ServerResponse.createByErrorMessage("initializationInclination.InitH4 is null !");
 		}
-		if (initializationInclination.getInitAngle4() == null){
+		if (initializationInclination.getInitAngle4() == null) {
 			return ServerResponse.createByErrorMessage("initializationInclination.InitAngle4 is null !");
 		}
 		singlePlaneArray[3][1] = initializationInclination.getInitAngle4();
 
-		if (initializationInclination.getRadius() == null){
+		if (initializationInclination.getRadius() == null) {
 			return ServerResponse.createByErrorMessage("initializationInclination.Radius is null !");
 		}
 		radius = initializationInclination.getRadius();
@@ -351,23 +350,23 @@ public class IInitializationInclinationServiceImpl implements IInitializationInc
 		double Y = Fy / (F * radius);
 
 		// 根据传感器类型，对X与Y进行数据转换
-		if (initializationInclination.getSensorRegisterId() == null){
+		if (initializationInclination.getSensorRegisterId() == null) {
 			return ServerResponse.createByErrorMessage("initializationInclination.sensorRegisterId is null !");
 		}
 		ServerResponse serialSensorResponse = iSerialSensorService.getSerialSensorBySensorRegisterId(initializationInclination.getSensorRegisterId());
-		if (serialSensorResponse.isFail()){
+		if (serialSensorResponse.isFail()) {
 			return serialSensorResponse;
 		}
-		SerialSensor serialSensor = (SerialSensor)serialSensorResponse.getData();
+		SerialSensor serialSensor = (SerialSensor) serialSensorResponse.getData();
 
-		if (serialSensor.getMark() == null){
+		if (serialSensor.getMark() == null) {
 			return ServerResponse.createByErrorMessage("the mark of serialSensor is null !");
 		}
-		if (serialSensor.getMark() == String.valueOf(InclinationConst.InclinationSerialTypeEnum.T826.getCode())){
+		if (serialSensor.getMark() == String.valueOf(InclinationConst.InclinationSerialTypeEnum.T826.getCode())) {
 			X = X;
 			Y = Y;
 		}
-		if (serialSensor.getMark() == String.valueOf(InclinationConst.InclinationSerialTypeEnum.T526.getCode())){
+		if (serialSensor.getMark() == String.valueOf(InclinationConst.InclinationSerialTypeEnum.T526.getCode())) {
 			X = X;
 			Y = Y;
 		}

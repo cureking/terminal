@@ -60,7 +60,7 @@ public class SerialPortUtil {
 			String portName = portList.nextElement().getName();
 			// 其实不该这里改造，但是先这么写着吧。 //TODO 之后需要移动到服务层
 			// 剔除非串口对象（如并口，LPT）
-			if (portName.contains("LPT")){
+			if (portName.contains("LPT")) {
 				continue;
 			}
 			portNameList.add(portName);

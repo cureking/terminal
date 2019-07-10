@@ -38,8 +38,9 @@ public interface ISerialSensorService {
 
 	/**
 	 * 串口设备置零
+	 *
 	 * @param sensorRegisterId
-	 * @param type	00表示绝对零点，01表示相对零点
+	 * @param type             00表示绝对零点，01表示相对零点
 	 * @return
 	 */
 	ServerResponse zeroReset(Integer sensorRegisterId, String type);

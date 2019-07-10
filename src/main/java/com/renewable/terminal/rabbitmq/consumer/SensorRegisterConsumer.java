@@ -1,6 +1,6 @@
 package com.renewable.terminal.rabbitmq.consumer;
 
-import com.rabbitmq.client.*;
+import com.rabbitmq.client.Channel;
 import com.renewable.terminal.common.GuavaCache;
 import com.renewable.terminal.common.ServerResponse;
 import com.renewable.terminal.pojo.SensorRegister;
@@ -14,11 +14,7 @@ import org.springframework.messaging.handler.annotation.Headers;
 import org.springframework.messaging.handler.annotation.Payload;
 import org.springframework.stereotype.Component;
 
-import javax.annotation.PostConstruct;
-import java.io.IOException;
-import java.util.List;
 import java.util.Map;
-import java.util.concurrent.TimeoutException;
 
 import static com.renewable.terminal.common.constant.CacheConstant.TERMINAL_ID;
 
@@ -94,8 +90,6 @@ public class SensorRegisterConsumer {
 //	}
 
 
-
-
 	@Autowired
 	private ISensorRegisterService iSensorRegisterService;
 
@@ -118,8 +112,8 @@ public class SensorRegisterConsumer {
 		//消费者操作
 		SensorRegister sensorRegister = JsonUtil.string2Obj(sensorRegisterStr, SensorRegister.class);
 
-		if (!GuavaCache.getKey(TERMINAL_ID).equals(sensorRegister.getTerminalId())){
-			log.info("refuse target sensorRegister with terminalId({}).current_terminalId({})",sensorRegister.getTerminalId(), GuavaCache.getKey(TERMINAL_ID));
+		if (!GuavaCache.getKey(TERMINAL_ID).equals(sensorRegister.getTerminalId())) {
+			log.info("refuse target sensorRegister with terminalId({}).current_terminalId({})", sensorRegister.getTerminalId(), GuavaCache.getKey(TERMINAL_ID));
 			return;
 		}
 

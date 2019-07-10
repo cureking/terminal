@@ -101,7 +101,7 @@ public class IInclinationDealTotalServiceImpl implements IInclinationDealTotalSe
 		// 正确的做法，这里需要进行事务级的控制，确保数据在这里不会因为MQ发送失败，造成数据丢失（RabbitMQ也有自己消息的事务控制，可以了解）
 		try {
 			ServerResponse response = inclinationProducer.sendInclinationTotal(inclinationTotalList);
-			if (response.isFail()){
+			if (response.isFail()) {
 				return response;
 			}
 		} catch (IOException e) {

@@ -1,8 +1,7 @@
 package com.renewable.terminal.rabbitmq.consumer;
 
-import com.rabbitmq.client.*;
+import com.rabbitmq.client.Channel;
 import com.renewable.terminal.Init.SerialSensorInit;
-import com.renewable.terminal.Init.TerminalInit;
 import com.renewable.terminal.common.GuavaCache;
 import com.renewable.terminal.common.ServerResponse;
 import com.renewable.terminal.pojo.Terminal;
@@ -16,12 +15,9 @@ import org.springframework.messaging.handler.annotation.Headers;
 import org.springframework.messaging.handler.annotation.Payload;
 import org.springframework.stereotype.Component;
 
-import javax.annotation.PostConstruct;
 import java.io.IOException;
 import java.util.Map;
-import java.util.concurrent.TimeoutException;
 
-import static com.renewable.terminal.common.constant.CacheConstant.TERMINAL_ID;
 import static com.renewable.terminal.common.constant.CacheConstant.TERMINAL_MAC;
 
 /**
@@ -54,13 +50,13 @@ public class TerminalConsumer {
 	public void messageOnTerminal(@Payload String terminalStr, @Headers Map<String, Object> headers, Channel channel) throws IOException {
 
 		Terminal terminal = JsonUtil.string2Obj(terminalStr, Terminal.class);
-		if (terminal == null){
+		if (terminal == null) {
 			log.info("consume the null terminal config !");
 			Long deliveryTag = (Long) headers.get(AmqpHeaders.DELIVERY_TAG);
 			channel.basicAck(deliveryTag, false);
 		}
-		if (!GuavaCache.getKey(TERMINAL_MAC).equals(terminal.getMac())){
-			log.info("refuse target terminal with mac({}) configure to this terminal with mac({}).",terminal.getMac(), GuavaCache.getKey(TERMINAL_MAC));
+		if (!GuavaCache.getKey(TERMINAL_MAC).equals(terminal.getMac())) {
+			log.info("refuse target terminal with mac({}) configure to this terminal with mac({}).", terminal.getMac(), GuavaCache.getKey(TERMINAL_MAC));
 			return;
 		}
 

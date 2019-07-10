@@ -1,6 +1,6 @@
 package com.renewable.terminal.rabbitmq.consumer;
 
-import com.rabbitmq.client.*;
+import com.rabbitmq.client.Channel;
 import com.renewable.terminal.common.GuavaCache;
 import com.renewable.terminal.common.ServerResponse;
 import com.renewable.terminal.pojo.SerialSensor;
@@ -14,14 +14,10 @@ import org.springframework.messaging.handler.annotation.Headers;
 import org.springframework.messaging.handler.annotation.Payload;
 import org.springframework.stereotype.Component;
 
-import javax.annotation.PostConstruct;
 import java.io.IOException;
-import java.util.List;
 import java.util.Map;
-import java.util.concurrent.TimeoutException;
 
 import static com.renewable.terminal.common.constant.CacheConstant.TERMINAL_ID;
-import static com.renewable.terminal.common.constant.CacheConstant.TERMINAL_MAC;
 
 /**
  * @Description：
@@ -50,8 +46,8 @@ public class SerialSensorConsumer {
 
 		SerialSensor serialSensor = JsonUtil.string2Obj(serialSensorStr, SerialSensor.class);
 
-		if (!GuavaCache.getKey(TERMINAL_ID).equals(serialSensor.getTerminalId())){
-			log.info("refuse target serialSensor with terminalId({}).current_terminalId({})",serialSensor.getTerminalId(), GuavaCache.getKey(TERMINAL_ID));
+		if (!GuavaCache.getKey(TERMINAL_ID).equals(serialSensor.getTerminalId())) {
+			log.info("refuse target serialSensor with terminalId({}).current_terminalId({})", serialSensor.getTerminalId(), GuavaCache.getKey(TERMINAL_ID));
 			return;
 		}
 

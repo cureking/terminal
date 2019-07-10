@@ -44,7 +44,7 @@ public class SerialSensorManageController {
 	 */
 	@RequestMapping(value = "zero_reset.do", method = RequestMethod.GET)
 	@ResponseBody
-	public ServerResponse zeroReset(Integer sensorRegisterId, String type){
+	public ServerResponse zeroReset(Integer sensorRegisterId, String type) {
 		return iSerialSensorService.zeroReset(sensorRegisterId, type);
 	}
 

@@ -3,6 +3,7 @@ package com.renewable.terminal.pojo;
 import lombok.ToString;
 
 import java.util.Date;
+
 @ToString
 public class Inclination {
 	private Long id;

@@ -1,6 +1,6 @@
 package com.renewable.terminal.rabbitmq.consumer;
 
-import com.rabbitmq.client.*;
+import com.rabbitmq.client.Channel;
 import com.renewable.terminal.common.GuavaCache;
 import com.renewable.terminal.common.ServerResponse;
 import com.renewable.terminal.pojo.InitializationInclination;
@@ -14,11 +14,7 @@ import org.springframework.messaging.handler.annotation.Headers;
 import org.springframework.messaging.handler.annotation.Payload;
 import org.springframework.stereotype.Component;
 
-import javax.annotation.PostConstruct;
-import java.io.IOException;
-import java.util.List;
 import java.util.Map;
-import java.util.concurrent.TimeoutException;
 
 import static com.renewable.terminal.common.constant.CacheConstant.TERMINAL_ID;
 
@@ -116,13 +112,13 @@ public class InitializationInclinationConsumer {
 		// 1.接收数据，并反序列化出对象
 		InitializationInclination initializationInclination = JsonUtil.string2Obj(new String(initializationInclinationStr), InitializationInclination.class);
 
-		if (initializationInclination == null){
+		if (initializationInclination == null) {
 			Long deliveryTag = (Long) headers.get(AmqpHeaders.DELIVERY_TAG);
 			channel.basicAck(deliveryTag, false);
 		}
 
-		if (!GuavaCache.getKey(TERMINAL_ID).equals(initializationInclination.getTerminalId())){
-			log.info("refuse target initializationInclination with terminalId({}).current_terminalId({})",initializationInclination.getTerminalId(), GuavaCache.getKey(TERMINAL_ID));
+		if (!GuavaCache.getKey(TERMINAL_ID).equals(initializationInclination.getTerminalId())) {
+			log.info("refuse target initializationInclination with terminalId({}).current_terminalId({})", initializationInclination.getTerminalId(), GuavaCache.getKey(TERMINAL_ID));
 			return;
 		}
 
@@ -134,9 +130,6 @@ public class InitializationInclinationConsumer {
 			channel.basicAck(deliveryTag, false);
 		}
 	}
-
-
-
 
 
 }

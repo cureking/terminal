@@ -3,7 +3,6 @@ package com.renewable.terminal.util;
 import org.apache.commons.lang3.StringUtils;
 
 import java.io.*;
-import java.lang.reflect.Array;
 import java.util.*;
 
 
@@ -322,7 +321,7 @@ public class FileUtils {
 	 * @return
 	 */
 	private static boolean hasSame(List<? extends Object> list) {
-		if (null == list){
+		if (null == list) {
 			return false;
 		}
 		return 1 == new HashSet<Object>(list).size();
@@ -335,7 +334,7 @@ public class FileUtils {
 	 * @return
 	 */
 	private static boolean hasSame2(List<? extends Object> list) {
-		if (null == list){
+		if (null == list) {
 			return false;
 		}
 		return list.size() == new HashSet<Object>(list).size();
@@ -434,7 +433,7 @@ public class FileUtils {
 	 * @throws IOException
 	 */
 	public static void deleteDir(File dir) throws IOException {
-		if (dir.isFile()){
+		if (dir.isFile()) {
 			throw new IOException("IOException -> BadInputException: not a directory.");
 		}
 		File[] files = dir.listFiles();
@@ -495,16 +494,14 @@ public class FileUtils {
 	}
 
 
-
-
-
 	/**
 	 * 修改文件名
+	 *
 	 * @param sourcePath 原路径名（绝对路径与相对路径都可以（毕竟是用于new File的），包含文件后缀名）。如："f:/a/a.xlsx"
 	 * @param targetPath 目标路径名（绝对路径与相对路径都可以，包含文件后缀名）。如："f:/a/b.xlsx"，（目录必须与sourcePath保持一致）
 	 * @return
 	 */
-	public static boolean fileRename(String sourcePath, String targetPath){
+	public static boolean fileRename(String sourcePath, String targetPath) {
 		//想命名的原文件的路径
 		File file = new File(sourcePath);
 		//将原文件更改为f:\a\b.xlsx，其中路径是必要的。注意
@@ -514,11 +511,12 @@ public class FileUtils {
 
 	/**
 	 * 修改文件夹（/目录）名
+	 *
 	 * @param sourcePath 原路径名（绝对路径与相对路径都可以，包含文件后缀名）。如："f:/A"
 	 * @param targetPath 目标路径名（绝对路径与相对路径都可以，包含文件后缀名）。如："f:/B"，（目录必须与sourcePath保持一致）
 	 * @return
 	 */
-	public static boolean folderRename(String sourcePath, String targetPath){
+	public static boolean folderRename(String sourcePath, String targetPath) {
 		//想命名的原文件夹的路径
 		File file1 = new File(sourcePath);
 		//将原文件夹更改为A，其中路径是必要的。注意
@@ -544,11 +542,11 @@ public class FileUtils {
 
 //		Boolean result = fileRename(path+targetFileName+fileExtension, path+targetFileName+"test"+fileExtension);
 //		System.out.println(result);
-		List<String> stringList = readFileContent(path+"tool\\"+"dBA.txt");
+		List<String> stringList = readFileContent(path + "tool\\" + "dBA.txt");
 		System.out.println(stringList);
 		System.out.println(stringList.size());
 		StringUtils.split("   ");
-		System.out.println(Arrays.toString(stringList.get(1).split("   ")));
+		System.out.println(Arrays.toString(stringList.get(100).split("   ")));
 
 	}
 }

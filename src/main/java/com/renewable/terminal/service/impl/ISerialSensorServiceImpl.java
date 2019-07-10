@@ -4,7 +4,6 @@ import com.google.common.collect.Lists;
 import com.renewable.terminal.common.GuavaCache;
 import com.renewable.terminal.common.ResponseCode;
 import com.renewable.terminal.common.ServerResponse;
-import com.renewable.terminal.common.constant.InclinationConstant;
 import com.renewable.terminal.common.sensor.InclinationConst;
 import com.renewable.terminal.dao.SerialSensorMapper;
 import com.renewable.terminal.exception.serial.*;
@@ -17,13 +16,11 @@ import com.renewable.terminal.service.ISerialSensorService;
 import com.renewable.terminal.util.SerialPortUtil;
 import gnu.io.SerialPort;
 import lombok.extern.slf4j.Slf4j;
-import org.apache.commons.lang3.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.io.IOException;
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.Date;
 import java.util.List;
 import java.util.concurrent.TimeoutException;
@@ -121,7 +118,7 @@ public class ISerialSensorServiceImpl implements ISerialSensorService {
 		// 3.数据发往中控室	// 其实只需要把数据发往中控室即可，中控室在更新数据后，会将新的数据返回，从而更细终端配置
 		// 现在还是不要那么复杂了。这里需要进行更新。中控室的再说
 		ServerResponse updateResponse = this.update(serialSensor);
-		if (updateResponse.isFail()){
+		if (updateResponse.isFail()) {
 			return updateResponse;
 		}
 
@@ -278,42 +275,42 @@ public class ISerialSensorServiceImpl implements ISerialSensorService {
 
 	@Override
 	public ServerResponse zeroReset(Integer sensorRegisterId, String type) {
-		if (sensorRegisterId == null){
+		if (sensorRegisterId == null) {
 			return ServerResponse.createByErrorMessage("the sensorRegisterId is null !");
 		}
-		if (!"00".equals(type) && !"01".equals(type)){
-			return ServerResponse.createByErrorCodeMessage(ResponseCode.ILLEAGAL_ARGUMENT.getCode(),"the type is error ! type:"+type);
+		if (!"00".equals(type) && !"01".equals(type)) {
+			return ServerResponse.createByErrorCodeMessage(ResponseCode.ILLEAGAL_ARGUMENT.getCode(), "the type is error ! type:" + type);
 		}
 
 		ServerResponse serialSensorTargetResponse = this.getSerialSensorBySensorRegisterId(sensorRegisterId);
-		if (serialSensorTargetResponse.isFail()){
+		if (serialSensorTargetResponse.isFail()) {
 			return serialSensorTargetResponse;
 		}
 
-		SerialSensor  serialSensorTarget = (SerialSensor)serialSensorTargetResponse.getData();
+		SerialSensor serialSensorTarget = (SerialSensor) serialSensorTargetResponse.getData();
 		String dataLength = serialSensorTarget.getMark();
 		Integer resetType = Integer.valueOf(type);
 		String address = serialSensorTarget.getAddress();
 		byte[] commandOringin = null;
 		// 获取command
 		// 这里可以采用设计模式，时间关系，先这样吧。毕竟现在数据量不大
-		if (InclinationConst.InclinationSerialTypeEnum.T526.getCode() == Integer.parseInt(dataLength)){
+		if (InclinationConst.InclinationSerialTypeEnum.T526.getCode() == Integer.parseInt(dataLength)) {
 			ServerResponse setZeroCommandResponse = InclinationDeal526T.command2Origin(Integer.parseInt(address), InclinationConst.InclinationSensor1Enum.SETZERO, resetType);
-			if (setZeroCommandResponse.isFail()){
+			if (setZeroCommandResponse.isFail()) {
 				return setZeroCommandResponse;
 			}
-			commandOringin = (byte[])setZeroCommandResponse.getData();
+			commandOringin = (byte[]) setZeroCommandResponse.getData();
 		}
-		if (InclinationConst.InclinationSerialTypeEnum.T826.getCode() == (Integer.parseInt(dataLength))){
+		if (InclinationConst.InclinationSerialTypeEnum.T826.getCode() == (Integer.parseInt(dataLength))) {
 			ServerResponse setZeroCommandResponse = InclinationDeal526T.command2Origin(Integer.parseInt(address), InclinationConst.InclinationSensor1Enum.SETZERO, resetType);
-			if (setZeroCommandResponse.isFail()){
+			if (setZeroCommandResponse.isFail()) {
 				return setZeroCommandResponse;
 			}
-			commandOringin = (byte[])setZeroCommandResponse.getData();
+			commandOringin = (byte[]) setZeroCommandResponse.getData();
 		}
 
 		// 4.向传感器发送命令
-		if (commandOringin == null){
+		if (commandOringin == null) {
 			return ServerResponse.createByErrorMessage("command transfer error");
 		}
 		byte[] originArray = commandOringin;
@@ -420,15 +417,15 @@ public class ISerialSensorServiceImpl implements ISerialSensorService {
 
 	@Override
 	public ServerResponse getSerialSensorBySensorRegisterId(Integer sensorRegisterId) {
-		if (sensorRegisterId == null){
+		if (sensorRegisterId == null) {
 			return ServerResponse.createByErrorMessage("the sensorRegisterId is null !");
 		}
 
 		SerialSensor serialSensor = null;
 
 		serialSensor = serialSensorMapper.selectBySensorRegisterId(sensorRegisterId);
-		if (sensorRegisterId == null){
-			return ServerResponse.createByErrorMessage("there is no serialSensor with the sensorRegisterId:"+sensorRegisterId);
+		if (sensorRegisterId == null) {
+			return ServerResponse.createByErrorMessage("there is no serialSensor with the sensorRegisterId:" + sensorRegisterId);
 		}
 
 		return ServerResponse.createBySuccess(serialSensor);
@@ -525,15 +522,16 @@ public class ISerialSensorServiceImpl implements ISerialSensorService {
 
 		return ServerResponse.createBySuccessMessage("serialSensor insert or update success .");
 	}
-	private ServerResponse getSerialSensorById(Short id){
-		if (id == null){
+
+	private ServerResponse getSerialSensorById(Short id) {
+		if (id == null) {
 			return ServerResponse.createByErrorMessage("the id is null !");
 		}
 
 		SerialSensor serialSensor = null;
 		serialSensor = serialSensorMapper.selectByPrimaryKey(id);
-		if (serialSensor == null){
-			return ServerResponse.createByErrorMessage("can't find the serialSensor with the id :"+id);
+		if (serialSensor == null) {
+			return ServerResponse.createByErrorMessage("can't find the serialSensor with the id :" + id);
 		}
 
 		return ServerResponse.createBySuccess(serialSensor);

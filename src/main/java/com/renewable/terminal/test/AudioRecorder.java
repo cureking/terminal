@@ -83,7 +83,7 @@ public class AudioRecorder extends JFrame {
 
 		// 注册匿名的听众
 		captureBtn.addActionListener(new ActionListener() {
-			@Override
+										 @Override
 										 public void actionPerformed(ActionEvent e) {
 											 captureBtn.setEnabled(false);
 											 stopBtn.setEnabled(true);
@@ -96,7 +96,7 @@ public class AudioRecorder extends JFrame {
 		);// end addActionListener()
 
 		stopBtn.addActionListener(new ActionListener() {
-			@Override
+									  @Override
 									  public void actionPerformed(ActionEvent e) {
 										  captureBtn.setEnabled(true);
 										  stopBtn.setEnabled(false);

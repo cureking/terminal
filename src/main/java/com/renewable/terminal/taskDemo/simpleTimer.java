@@ -37,38 +37,51 @@ public class simpleTimer {
 	@Autowired
 	private ISerialSensorService iSerialSensorService;
 
-	/**
-	 * 用于实现轮询获取传感器监测数据
-	 */
-	@Scheduled(cron = "*/5 * * * * *")  //每五秒钟    //数据读取  //暂停，以便进行相关调试工作
-	public void requireSerialData() {
-		log.info("请求监测数据定时任务启动");
+	@Autowired
+	private IAudioService iAudioService;
 
-		iSerialSensorService.taskLoadFromSerialSensor();
+//	/**
+//	 * 用于实现轮询获取传感器监测数据
+//	 */
+//	@Scheduled(cron = "*/5 * * * * *")  //每五秒钟    //数据读取  //暂停，以便进行相关调试工作
+//	public void requireSerialData() {
+//		log.info("请求监测数据定时任务启动");
+//
+//		iSerialSensorService.taskLoadFromSerialSensor();
+//
+//		log.info("请求定时任务结束");
+//		System.out.println("请求定时任务结束");
+//
+//	}
 
-		log.info("请求定时任务结束");
-		System.out.println("请求定时任务结束");
+//
+//	@Scheduled(cron = "*/20 * * * * *") // 20秒 	// 发送倾斜数据至MQ，至中控室     //暂停，以便进行相关调试工作
+//	public void RabbitMQAndInclinationIntegrateService() {
+//		System.out.println("RabbitMQAndInclinationIntegrateService start！");
+//
+//		iInclinationDealTotalService.uploadDataList();
+//		iInclinationDealInitService.uploadDataList();
+//
+//		System.out.println("RabbitMQAndInclinationIntegrateService end");
+//	}
 
+//	@Scheduled(cron = "*/50 * * * * *") // 50秒	// 发送警报信息至MQ，至中控室
+//	public void WarningService() {
+//		System.out.println("RabbitMQAndInclinationIntegrateService start！");
+//
+//		iWarningService.stateCheck();
+//
+//		System.out.println("RabbitMQAndInclinationIntegrateService end");
+//	}
+
+	@Scheduled(cron = "0 */1 * * * *") // 60秒	// 发送警报信息至MQ，至中控室
+	public void AudioService() {
+		System.out.println("AudioService start！");
+
+		iAudioService.startupAudioSensorListTasks();
+
+		System.out.println("AudioService end");
 	}
 
-
-	@Scheduled(cron = "*/20 * * * * *") // 20秒 	// 发送倾斜数据至MQ，至中控室     //暂停，以便进行相关调试工作
-	public void RabbitMQAndInclinationIntegrateService() {
-		System.out.println("RabbitMQAndInclinationIntegrateService start！");
-
-		iInclinationDealTotalService.uploadDataList();
-		iInclinationDealInitService.uploadDataList();
-
-		System.out.println("RabbitMQAndInclinationIntegrateService end");
-	}
-
-	@Scheduled(cron = "*/50 * * * * *") // 20秒	// 发送警报信息至MQ，至中控室
-	public void WarningService() {
-		System.out.println("RabbitMQAndInclinationIntegrateService start！");
-
-		iWarningService.stateCheck();
-
-		System.out.println("RabbitMQAndInclinationIntegrateService end");
-	}
 
 }

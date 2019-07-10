@@ -1,8 +1,5 @@
 package com.renewable.terminal.rabbitmq.producer;
 
-import com.rabbitmq.client.Channel;
-import com.rabbitmq.client.Connection;
-import com.rabbitmq.client.ConnectionFactory;
 import com.renewable.terminal.pojo.SerialSensor;
 import com.renewable.terminal.util.JsonUtil;
 import org.springframework.amqp.core.Message;
@@ -15,9 +12,7 @@ import org.springframework.amqp.rabbit.core.RabbitTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
-import java.io.IOException;
 import java.util.List;
-import java.util.concurrent.TimeoutException;
 
 /**
  * @Description：
@@ -63,11 +58,6 @@ public class SerialSensorProducer {
 //		channel.close();
 //		connection.close();
 //	}
-
-
-
-
-
 
 
 	@Autowired

@@ -2,17 +2,49 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="2f49511d-6b2a-45c9-881f-26eaef152caa" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/renewable/terminal/common/constant/AudioConstant.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/encodings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/audio/audio_433952.wav" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/audio/tool/AMNout.txt" beforeDir="false" afterPath="$PROJECT_DIR$/audio/tool/AMNout.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/audio/tool/dBA.txt" beforeDir="false" afterPath="$PROJECT_DIR$/audio/tool/dBA.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/audio/tool/wstest.wav" beforeDir="false" afterPath="$PROJECT_DIR$/audio/tool/wstest.wav" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/audio/wstesttest.wav" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/renewable/terminal/controller/backend/SerialSensorManageController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/renewable/terminal/controller/backend/SerialSensorManageController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/renewable/terminal/extend/driven/AudioConstant.java" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/renewable/terminal/extend/driven/AudioRecorder.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/renewable/terminal/extend/driven/AudioRecorder.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/renewable/terminal/extend/serial/SerialPool.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/renewable/terminal/extend/serial/SerialPool.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/renewable/terminal/extend/serial/sensor/InclinationDeal826T.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/renewable/terminal/extend/serial/sensor/InclinationDeal826T.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/renewable/terminal/pojo/Inclination.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/renewable/terminal/pojo/Inclination.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/renewable/terminal/rabbitmq/consumer/InitializationInclinationConsumer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/renewable/terminal/rabbitmq/consumer/InitializationInclinationConsumer.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/renewable/terminal/rabbitmq/consumer/SensorRegisterConsumer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/renewable/terminal/rabbitmq/consumer/SensorRegisterConsumer.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/renewable/terminal/rabbitmq/consumer/SerialSensorConsumer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/renewable/terminal/rabbitmq/consumer/SerialSensorConsumer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/renewable/terminal/rabbitmq/consumer/TerminalConsumer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/renewable/terminal/rabbitmq/consumer/TerminalConsumer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/renewable/terminal/rabbitmq/producer/InclinationProducer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/renewable/terminal/rabbitmq/producer/InclinationProducer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/renewable/terminal/rabbitmq/producer/SensorRegisterProducer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/renewable/terminal/rabbitmq/producer/SensorRegisterProducer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/renewable/terminal/rabbitmq/producer/SerialSensorProducer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/renewable/terminal/rabbitmq/producer/SerialSensorProducer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/renewable/terminal/service/ISerialSensorService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/renewable/terminal/service/ISerialSensorService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/renewable/terminal/service/impl/IInclinationDealInitServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/renewable/terminal/service/impl/IInclinationDealInitServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/renewable/terminal/service/impl/IInclinationDealTotalServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/renewable/terminal/service/impl/IInclinationDealTotalServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/renewable/terminal/service/impl/IInitializationInclinationServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/renewable/terminal/service/impl/IInitializationInclinationServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/renewable/terminal/service/impl/ISerialSensorServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/renewable/terminal/service/impl/ISerialSensorServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/renewable/terminal/service/impl/ITerminalServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/renewable/terminal/service/impl/ITerminalServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/renewable/terminal/taskDemo/simpleTimer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/renewable/terminal/taskDemo/simpleTimer.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/renewable/terminal/test/AudioRecorder.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/renewable/terminal/test/AudioRecorder.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/renewable/terminal/util/FileUtils.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/renewable/terminal/util/FileUtils.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/renewable/terminal/util/SerialPortUtil.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/renewable/terminal/util/SerialPortUtil.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/application.yml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/application.yml" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/application.yml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/maven-archiver/pom.properties" beforeDir="false" afterPath="$PROJECT_DIR$/target/maven-archiver/pom.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/terminal-0.0.1-SNAPSHOT.jar.original" beforeDir="false" afterPath="$PROJECT_DIR$/target/terminal-0.0.1-SNAPSHOT.jar.original" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" beforeDir="false" afterPath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" beforeDir="false" afterPath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/testCompile/default-testCompile/createdFiles.lst" beforeDir="false" afterPath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/testCompile/default-testCompile/createdFiles.lst" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/surefire-reports/2019-06-27T19-36-57_695.dumpstream" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/surefire-reports/2019-06-28T10-45-13_591.dumpstream" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/surefire-reports/TEST-com.renewable.terminal.TerminalApplicationTests.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/surefire-reports/com.renewable.terminal.TerminalApplicationTests.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/terminal-0.0.1-SNAPSHOT.jar.original" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/terminal-0.5.5-SNAPSHOT.jar.original" beforeDir="false" afterPath="$PROJECT_DIR$/target/terminal-0.5.5-SNAPSHOT.jar.original" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/terminal.iml" beforeDir="false" afterPath="$PROJECT_DIR$/terminal.iml" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <ignored path="$PROJECT_DIR$/target/" />
@@ -26,64 +58,155 @@
     <session id="-1310602666">
       <usages-collector id="statistics.lifecycle.project">
         <counts>
-          <entry key="project.closed" value="7" />
+          <entry key="project.closed" value="9" />
           <entry key="project.open.time.1" value="1" />
-          <entry key="project.open.time.14" value="1" />
+          <entry key="project.open.time.14" value="2" />
           <entry key="project.open.time.15" value="1" />
+          <entry key="project.open.time.17" value="1" />
           <entry key="project.open.time.18" value="1" />
           <entry key="project.open.time.2" value="1" />
           <entry key="project.open.time.20" value="1" />
           <entry key="project.open.time.4" value="4" />
           <entry key="project.open.time.7" value="1" />
-          <entry key="project.opened" value="11" />
+          <entry key="project.opened" value="13" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.open">
         <counts>
-          <entry key="class" value="2" />
-          <entry key="java" value="374" />
+          <entry key="class" value="19" />
+          <entry key="java" value="495" />
           <entry key="log" value="1" />
           <entry key="properties" value="1" />
-          <entry key="xml" value="27" />
-          <entry key="yml" value="7" />
+          <entry key="xml" value="32" />
+          <entry key="yml" value="11" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.open">
         <counts>
-          <entry key="CLASS" value="2" />
-          <entry key="JAVA" value="374" />
+          <entry key="CLASS" value="19" />
+          <entry key="JAVA" value="495" />
           <entry key="Log" value="1" />
           <entry key="Properties" value="1" />
-          <entry key="XML" value="27" />
-          <entry key="YAML" value="7" />
+          <entry key="XML" value="32" />
+          <entry key="YAML" value="11" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
-          <entry key="java" value="7543" />
+          <entry key="java" value="13546" />
           <entry key="properties" value="1" />
-          <entry key="xml" value="272" />
-          <entry key="yml" value="76" />
+          <entry key="xml" value="316" />
+          <entry key="yml" value="148" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
-          <entry key="JAVA" value="7543" />
+          <entry key="JAVA" value="13546" />
           <entry key="Properties" value="1" />
           <entry key="SQL" value="6" />
-          <entry key="XML" value="266" />
-          <entry key="YAML" value="76" />
+          <entry key="XML" value="310" />
+          <entry key="YAML" value="148" />
         </counts>
       </usages-collector>
     </session>
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/renewable/terminal/service/impl/IAudioServiceImpl.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="437">
+              <caret line="253" column="30" selection-start-line="253" selection-start-column="30" selection-end-line="253" selection-end-column="30" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/renewable/terminal/controller/portal/AudioDbaController.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="536">
+              <caret line="41" column="64" selection-start-line="41" selection-start-column="64" selection-end-line="41" selection-end-column="64" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/renewable/terminal/controller/portal/AudioAmnoutController.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="380">
+              <caret line="20" selection-start-line="20" selection-end-line="20" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/renewable/terminal/pojo/AudioDba.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="236">
+              <caret line="65" column="63" selection-start-line="65" selection-start-column="63" selection-end-line="65" selection-end-column="63" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/renewable/terminal/configuration/ServletInitializer.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="171">
+              <caret line="9" column="61" selection-start-line="9" selection-start-column="61" selection-end-line="9" selection-end-column="61" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/renewable/terminal/configuration/MyMetaObjectHandler.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="304">
+              <caret line="21" column="69" selection-start-line="21" selection-start-column="69" selection-end-line="21" selection-end-column="69" />
+            </state>
+          </provider>
+        </entry>
+      </file>
       <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/pom.xml">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="285">
+              <caret line="15" selection-start-line="15" selection-end-line="15" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/renewable/terminal/pojo/AudioAmnout.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="304">
+              <caret line="52" column="7" selection-start-line="52" selection-start-column="7" selection-end-line="52" selection-end-column="7" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/com/renewable/terminal/util/FileUtils.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="331">
-              <caret line="543" lean-forward="true" selection-start-line="543" selection-end-line="543" />
+            <state relative-caret-position="-186">
+              <caret line="409" column="37" selection-start-line="409" selection-start-column="26" selection-end-line="409" selection-end-column="37" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -92,76 +215,13 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/renewable/terminal/rabbitmq/consumer/TerminalConsumer.java">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/renewable/terminal/util/openWinExeUtil.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="445">
-              <caret line="61" column="8" selection-start-line="61" selection-start-column="8" selection-end-line="64" selection-end-column="9" />
+            <state relative-caret-position="80">
+              <caret line="24" column="5" selection-start-line="24" selection-start-column="5" selection-end-line="24" selection-end-column="5" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/renewable/terminal/rabbitmq/consumer/SerialSensorConsumer.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="559">
-              <caret line="52" column="8" selection-start-line="52" selection-start-column="8" selection-end-line="55" selection-end-column="9" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/renewable/terminal/rabbitmq/consumer/SensorRegisterConsumer.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="540">
-              <caret line="120" column="8" selection-start-line="120" selection-start-column="8" selection-end-line="123" selection-end-column="9" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/renewable/terminal/rabbitmq/consumer/InitializationInclinationConsumer.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="665">
-              <caret line="124" column="21" selection-start-line="124" selection-start-column="21" selection-end-line="124" selection-end-column="21" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/renewable/terminal/service/IInclinationService.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="361">
-              <caret line="24" column="19" selection-start-line="24" selection-start-column="19" selection-end-line="24" selection-end-column="19" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/renewable/terminal/service/impl/IInclinationServiceImpl.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="306">
-              <caret line="114" column="56" selection-start-line="114" selection-start-column="56" selection-end-line="114" selection-end-column="56" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/renewable/terminal/extend/serial/sensor/InclinationDeal826T.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="395">
-              <caret line="138" column="63" selection-start-line="138" selection-start-column="63" selection-end-line="138" selection-end-column="63" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/renewable/terminal/util/OtherUtil.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="140">
-              <caret line="128" column="48" selection-start-line="128" selection-start-column="48" selection-end-line="128" selection-end-column="48" />
             </state>
           </provider>
         </entry>
@@ -192,6 +252,13 @@
       <find>send</find>
       <find>no serial meet the condition</find>
       <find>subByte</find>
+      <find>AudioRecorder</find>
+      <find>initializationInclination.InitH1</find>
+      <find>clean</find>
+      <find>存在</find>
+      <find>create</find>
+      <find>count</find>
+      <find>dba</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -210,40 +277,9 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/src/main/java/com/renewable/terminal/util/SensorPropertiesUtil.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/renewable/terminal/util/PropertiesUtil.java" />
-        <option value="$PROJECT_DIR$/src/main/resources/mappers/SensorMapper.xml" />
-        <option value="$PROJECT_DIR$/src/main/resources/mappers/InitializationInclinationMapper.xml" />
-        <option value="$PROJECT_DIR$/src/main/resources/mappers/InclinationMapper.xml" />
-        <option value="$PROJECT_DIR$/src/main/resources/mappers/InclinationDealedTotalMapper.xml" />
-        <option value="$PROJECT_DIR$/src/main/resources/mappers/InclinationDealedInitMapper.xml" />
-        <option value="$PROJECT_DIR$/src/main/resources/mappers/SensorRegisterMapper.xml" />
-        <option value="$PROJECT_DIR$/src/main/resources/mappers/SerialSensorMapper.xml" />
-        <option value="$PROJECT_DIR$/src/main/resources/mappers/TerminalMapper.xml" />
-        <option value="$PROJECT_DIR$/src/main/resources/mappers/WarningEliminateMapper.xml" />
-        <option value="$PROJECT_DIR$/src/main/resources/mappers/WarningMapper.xml" />
-        <option value="$PROJECT_DIR$/src/main/java/com/renewable/terminal/service/impl/IInclinationDealInitServiceImpl.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/renewable/terminal/service/impl/IInclinationDealTotalServiceImpl.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/renewable/terminal/rabbitmq/producer/InclinationProducer.java" />
-        <option value="$PROJECT_DIR$/src/main/resources/mapper/InitializationInclinationMapper.xml" />
-        <option value="$PROJECT_DIR$/src/main/resources/mapper/WarningMapper.xml" />
-        <option value="$PROJECT_DIR$/src/main/java/com/renewable/terminal/service/impl/ITerminalServiceImpl.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/renewable/terminal/rabbitmq/producer/InitializationProducer.java" />
-        <option value="$PROJECT_DIR$/src/main/resources/mapper/SensorRegisterMapper.xml" />
-        <option value="$PROJECT_DIR$/src/main/java/com/renewable/terminal/service/impl/ISensorRegisterServiceImpl.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/renewable/terminal/rabbitmq/producer/SensorRegisterProducer.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/renewable/terminal/rabbitmq/producer/SerialSensorProducer.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/renewable/terminal/controller/backend/InitializationInclinationManageController.java" />
-        <option value="$PROJECT_DIR$/src/main/resources/application.yml" />
-        <option value="$PROJECT_DIR$/src/main/java/com/renewable/terminal/Init/GlobalInit.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/renewable/terminal/extend/serial/sensor/InclinationDeal526T.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/renewable/terminal/util/SerialPortUtil.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/renewable/terminal/dao/SerialSensorMapper.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/renewable/terminal/common/sensor/InclinationConst.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/renewable/terminal/service/impl/IInitializationInclinationServiceImpl.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/renewable/terminal/service/ISerialSensorService.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/renewable/terminal/controller/backend/SerialSensorManageController.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/renewable/terminal/taskDemo/simpleTimer.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/renewable/terminal/Init/SerialSensorInit.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/renewable/terminal/service/impl/ISerialSensorServiceImpl.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/renewable/terminal/extend/serial/SerialListener.java" />
@@ -251,16 +287,47 @@
         <option value="$PROJECT_DIR$/src/main/java/com/renewable/terminal/pojo/Inclination.java" />
         <option value="$PROJECT_DIR$/src/main/resources/mapper/SerialSensorMapper.xml" />
         <option value="$PROJECT_DIR$/src/main/java/com/renewable/terminal/test/AudioRecorder.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/renewable/terminal/extend/driven/AudioConstant.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/renewable/terminal/extend/driven/AudioRecorder.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/renewable/terminal/rabbitmq/consumer/TerminalConsumer.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/renewable/terminal/extend/serial/SerialPool.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/renewable/terminal/extend/serial/sensor/InclinationDeal826T.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/renewable/terminal/rabbitmq/consumer/SerialSensorConsumer.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/renewable/terminal/rabbitmq/consumer/SensorRegisterConsumer.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/renewable/terminal/rabbitmq/consumer/InitializationInclinationConsumer.java" />
-        <option value="$PROJECT_DIR$/pom.xml" />
+        <option value="$PROJECT_DIR$/src/main/java/com/renewable/terminal/service/IAudioService.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/renewable/terminal/extend/driven/AudioRecorder2.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/renewable/terminal/extend/driven/AudioConstant.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/renewable/terminal/configuration/CodeGenerator.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/renewable/terminal/test/entity/AudioAmnout.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/renewable/terminal/test/entity/AudioDba.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/renewable/terminal/service/impl/AudioAmnoutServiceImpl.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/renewable/terminal/service/IAudioAmnoutService.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/renewable/terminal/service/IAudioDbaService.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/renewable/terminal/service/impl/AudioDbaServiceImpl.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/renewable/terminal/dao/AudioDbaMapper.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/renewable/terminal/dao/AudioAmnoutMapper.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/renewable/terminal/util/FileUtils.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/renewable/terminal/common/constant/AudioConstant.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/renewable/terminal/service/impl/IInitializationInclinationServiceImpl.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/renewable/terminal/test/NumberTest.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/renewable/terminal/test/NullTest.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/renewable/terminal/util/ListUtil.java" />
+        <option value="$PROJECT_DIR$/src/main/resources/mybatis-config.xml" />
+        <option value="$PROJECT_DIR$/src/main/resources/application.yml" />
+        <option value="$PROJECT_DIR$/src/main/java/com/renewable/terminal/extend/driven/AudioRecorder.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/renewable/terminal/configuration/SqlInterceptor.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/renewable/terminal/configuration/MybatisPlusConfig.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/renewable/terminal/configuration/ServletInitializer.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/renewable/terminal/controller/portal/InclinationController.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/renewable/terminal/controller/portal/AudioDbaController.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/renewable/terminal/controller/portal/AudioAmnoutController.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/renewable/terminal/taskDemo/simpleTimer.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/renewable/terminal/test/ExeTest.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/renewable/terminal/util/openWinExeUtil.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/renewable/terminal/pojo/AudioDba.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/renewable/terminal/pojo/AudioAmnout.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/renewable/terminal/service/impl/IAudioServiceImpl.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/renewable/terminal/configuration/MyMetaObjectHandler.java" />
+        <option value="$PROJECT_DIR$/pom.xml" />
       </list>
     </option>
   </component>
@@ -287,8 +354,7 @@
     </treeState>
   </component>
   <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="-10" />
-    <option name="y" value="-10" />
+    <option name="x" value="667" />
     <option name="width" value="1775" />
     <option name="height" value="1040" />
   </component>
@@ -300,9 +366,7 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scope" />
       <pane id="AndroidView" />
-      <pane id="PackagesPane" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -343,6 +407,72 @@
               <item name="main" type="462c0819:PsiDirectoryNode" />
               <item name="java" type="462c0819:PsiDirectoryNode" />
               <item name="terminal" type="462c0819:PsiDirectoryNode" />
+              <item name="common" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="terminal" type="b2602c69:ProjectViewProjectNode" />
+              <item name="terminal" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="terminal" type="462c0819:PsiDirectoryNode" />
+              <item name="common" type="462c0819:PsiDirectoryNode" />
+              <item name="constant" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="terminal" type="b2602c69:ProjectViewProjectNode" />
+              <item name="terminal" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="terminal" type="462c0819:PsiDirectoryNode" />
+              <item name="configuration" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="terminal" type="b2602c69:ProjectViewProjectNode" />
+              <item name="terminal" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="terminal" type="462c0819:PsiDirectoryNode" />
+              <item name="controller" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="terminal" type="b2602c69:ProjectViewProjectNode" />
+              <item name="terminal" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="terminal" type="462c0819:PsiDirectoryNode" />
+              <item name="controller" type="462c0819:PsiDirectoryNode" />
+              <item name="backend" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="terminal" type="b2602c69:ProjectViewProjectNode" />
+              <item name="terminal" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="terminal" type="462c0819:PsiDirectoryNode" />
+              <item name="controller" type="462c0819:PsiDirectoryNode" />
+              <item name="portal" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="terminal" type="b2602c69:ProjectViewProjectNode" />
+              <item name="terminal" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="terminal" type="462c0819:PsiDirectoryNode" />
+              <item name="dao" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="terminal" type="b2602c69:ProjectViewProjectNode" />
+              <item name="terminal" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="terminal" type="462c0819:PsiDirectoryNode" />
               <item name="extend" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
@@ -362,57 +492,7 @@
               <item name="main" type="462c0819:PsiDirectoryNode" />
               <item name="java" type="462c0819:PsiDirectoryNode" />
               <item name="terminal" type="462c0819:PsiDirectoryNode" />
-              <item name="extend" type="462c0819:PsiDirectoryNode" />
-              <item name="serial" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="terminal" type="b2602c69:ProjectViewProjectNode" />
-              <item name="terminal" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="terminal" type="462c0819:PsiDirectoryNode" />
-              <item name="extend" type="462c0819:PsiDirectoryNode" />
-              <item name="serial" type="462c0819:PsiDirectoryNode" />
-              <item name="sensor" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="terminal" type="b2602c69:ProjectViewProjectNode" />
-              <item name="terminal" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="terminal" type="462c0819:PsiDirectoryNode" />
-              <item name="Init" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="terminal" type="b2602c69:ProjectViewProjectNode" />
-              <item name="terminal" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="terminal" type="462c0819:PsiDirectoryNode" />
-              <item name="rabbitmq" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="terminal" type="b2602c69:ProjectViewProjectNode" />
-              <item name="terminal" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="terminal" type="462c0819:PsiDirectoryNode" />
-              <item name="rabbitmq" type="462c0819:PsiDirectoryNode" />
-              <item name="consumer" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="terminal" type="b2602c69:ProjectViewProjectNode" />
-              <item name="terminal" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="terminal" type="462c0819:PsiDirectoryNode" />
-              <item name="rabbitmq" type="462c0819:PsiDirectoryNode" />
-              <item name="producer" type="462c0819:PsiDirectoryNode" />
+              <item name="pojo" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="terminal" type="b2602c69:ProjectViewProjectNode" />
@@ -449,6 +529,15 @@
               <item name="main" type="462c0819:PsiDirectoryNode" />
               <item name="java" type="462c0819:PsiDirectoryNode" />
               <item name="terminal" type="462c0819:PsiDirectoryNode" />
+              <item name="test" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="terminal" type="b2602c69:ProjectViewProjectNode" />
+              <item name="terminal" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="terminal" type="462c0819:PsiDirectoryNode" />
               <item name="util" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
@@ -458,10 +547,42 @@
               <item name="main" type="462c0819:PsiDirectoryNode" />
               <item name="resources" type="462c0819:PsiDirectoryNode" />
             </path>
+            <path>
+              <item name="terminal" type="b2602c69:ProjectViewProjectNode" />
+              <item name="terminal" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="resources" type="462c0819:PsiDirectoryNode" />
+              <item name="mapper" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="terminal" type="b2602c69:ProjectViewProjectNode" />
+              <item name="External Libraries" type="cb654da1:ExternalLibrariesNode" />
+            </path>
+            <path>
+              <item name="terminal" type="b2602c69:ProjectViewProjectNode" />
+              <item name="External Libraries" type="cb654da1:ExternalLibrariesNode" />
+              <item name="Maven: com.baomidou:mybatis-plus-extension:3.1.2" type="70bed36:NamedLibraryElementNode" />
+            </path>
+            <path>
+              <item name="terminal" type="b2602c69:ProjectViewProjectNode" />
+              <item name="External Libraries" type="cb654da1:ExternalLibrariesNode" />
+              <item name="Maven: com.baomidou:mybatis-plus-extension:3.1.2" type="70bed36:NamedLibraryElementNode" />
+              <item name="mybatis-plus-extension-3.1.2.jar" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="terminal" type="b2602c69:ProjectViewProjectNode" />
+              <item name="External Libraries" type="cb654da1:ExternalLibrariesNode" />
+              <item name="Maven: com.baomidou:mybatis-plus-extension:3.1.2" type="70bed36:NamedLibraryElementNode" />
+              <item name="mybatis-plus-extension-3.1.2.jar" type="462c0819:PsiDirectoryNode" />
+              <item name="extension" type="462c0819:PsiDirectoryNode" />
+            </path>
           </expand>
           <select />
         </subPane>
       </pane>
+      <pane id="PackagesPane" />
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -471,22 +592,28 @@
     <property name="RequestMappingsPanelWidth1" value="75" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1562565536938" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1562721374836" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
     <property name="project.structure.last.edited" value="Project" />
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.2" />
-    <property name="settings.editor.selected.configurable" value="settings.github" />
+    <property name="settings.editor.selected.configurable" value="File.Encoding" />
   </component>
   <component name="RecentsManager">
+    <key name="CreateClassDialog.RecentsKey">
+      <recent name="com.renewable.terminal.service.impl" />
+    </key>
     <key name="CopyClassDialog.RECENTS_KEY">
+      <recent name="com.renewable.terminal.controller.portal" />
+      <recent name="com.renewable.terminal.configuration" />
       <recent name="com.renewable.terminal.extend.driven" />
     </key>
     <key name="CopyFile.RECENT_KEYS">
-      <recent name="C:\Users\curek\IdeaProjects\Renewable_Power\terminal\src\main\java\com\renewable\terminal\common" />
-      <recent name="C:\Users\curek\IdeaProjects\Renewable_Power\terminal\src\main\resources" />
-      <recent name="C:\Users\curek\IdeaProjects\Renewable_Power\terminal\src\main\resources\static" />
+      <recent name="C:\Users\curek\IdeaProjects\Renewable_Power\terminal\src\main\java\com\renewable\terminal\configuration" />
+      <recent name="C:\Users\curek\IdeaProjects\Renewable_Power\terminal\src\main\java\com\renewable\terminal\pojo" />
+      <recent name="C:\Users\curek\IdeaProjects\Renewable_Power\terminal\src\main\resources\mapper" />
+      <recent name="C:\Users\curek\IdeaProjects\Renewable_Power\terminal\src\main\java\com\renewable\terminal\dao" />
       <recent name="C:\Users\curek\IdeaProjects\Renewable_Power\terminal\src\main\java\com\renewable\terminal" />
     </key>
   </component>
@@ -502,9 +629,22 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Application.FileUtils">
+  <component name="RunManager" selected="Application.ExeTest">
     <configuration name="AudioRecorder" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="com.renewable.terminal.extend.driven.AudioRecorder" />
+      <module name="terminal" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.renewable.terminal.common.constant.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="AudioRecorder3" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="com.renewable.terminal.extend.driven.AudioRecorder3" />
       <module name="terminal" />
       <extension name="coverage">
         <pattern>
@@ -516,12 +656,38 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="FileUtils" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="com.renewable.terminal.util.FileUtils" />
+    <configuration name="ExeTest" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="com.renewable.terminal.test.ExeTest" />
       <module name="terminal" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="com.renewable.terminal.util.*" />
+          <option name="PATTERN" value="com.renewable.terminal.test.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="NullTest" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="com.renewable.terminal.test.NullTest" />
+      <module name="terminal" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.renewable.terminal.test.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="NumberTest" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="com.renewable.terminal.test.NumberTest" />
+      <module name="terminal" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.renewable.terminal.test.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -539,12 +705,18 @@
     <list>
       <item itemvalue="Spring Boot.TerminalApplication" />
       <item itemvalue="Application.AudioRecorder" />
-      <item itemvalue="Application.FileUtils" />
+      <item itemvalue="Application.NullTest" />
+      <item itemvalue="Application.NumberTest" />
+      <item itemvalue="Application.AudioRecorder3" />
+      <item itemvalue="Application.ExeTest" />
     </list>
     <recent_temporary>
       <list>
-        <item itemvalue="Application.FileUtils" />
+        <item itemvalue="Application.ExeTest" />
         <item itemvalue="Application.AudioRecorder" />
+        <item itemvalue="Application.AudioRecorder3" />
+        <item itemvalue="Application.NullTest" />
+        <item itemvalue="Application.NumberTest" />
       </list>
     </recent_temporary>
   </component>
@@ -568,18 +740,21 @@
       <workItem from="1562290937728" duration="6474000" />
       <workItem from="1562311434773" duration="7000" />
       <workItem from="1562520398286" duration="7125000" />
-      <workItem from="1562556292709" duration="3550000" />
+      <workItem from="1562556292709" duration="11850000" />
+      <workItem from="1562575718374" duration="14735000" />
+      <workItem from="1562643406663" duration="19768000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="94708000" />
+    <option name="totallyTimeSpent" value="137511000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-7" y="-7" width="2062" height="1126" extended-state="6" />
+    <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.66065574" visible="true" weight="0.21728271" />
-      <window_info id="Structure" order="1" sideWeight="0.33934426" side_tool="true" visible="true" weight="0.21728271" />
+      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.59056604" visible="true" weight="0.22177823" />
+      <window_info id="Structure" order="1" sideWeight="0.40943396" side_tool="true" visible="true" weight="0.22177823" />
       <window_info id="Designer" order="2" />
       <window_info id="Image Layers" order="3" />
       <window_info id="UI Designer" order="4" />
@@ -588,16 +763,16 @@
       <window_info id="Web" order="7" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.32955715" />
-      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.37178168" />
-      <window_info anchor="bottom" id="Debug" order="3" weight="0.3038105" />
+      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.45417097" />
+      <window_info anchor="bottom" id="Debug" order="3" weight="0.3800206" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" />
-      <window_info anchor="bottom" id="Spring" order="7" />
-      <window_info anchor="bottom" id="Terminal" order="8" weight="0.21833162" />
+      <window_info anchor="bottom" id="Spring" order="7" weight="0.32955715" />
+      <window_info anchor="bottom" id="Terminal" order="8" weight="0.31513903" />
       <window_info anchor="bottom" id="Event Log" order="9" side_tool="true" />
       <window_info anchor="bottom" id="Messages" order="10" weight="0.32955715" />
-      <window_info anchor="bottom" id="Java Enterprise" order="11" />
+      <window_info anchor="bottom" id="Java Enterprise" order="11" weight="0.32955715" />
       <window_info anchor="bottom" id="Database Changes" order="12" show_stripe_button="false" />
       <window_info anchor="bottom" id="Version Control" order="13" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
@@ -605,7 +780,7 @@
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
       <window_info anchor="right" id="Palette" order="3" />
       <window_info anchor="right" id="Capture Analysis" order="4" />
-      <window_info anchor="right" id="Maven Projects" order="5" weight="0.16683316" />
+      <window_info anchor="right" id="Maven Projects" order="5" visible="true" weight="0.16683316" />
       <window_info anchor="right" id="Database" order="6" />
       <window_info anchor="right" id="Palette&#9;" order="7" />
       <window_info anchor="right" id="Theme Preview" order="8" />
@@ -623,7 +798,7 @@
       <breakpoints>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/main/java/com/renewable/terminal/service/impl/IInitializationInclinationServiceImpl.java</url>
-          <line>72</line>
+          <line>71</line>
           <properties />
           <option name="timeStamp" value="22" />
         </line-breakpoint>
@@ -635,25 +810,13 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/main/java/com/renewable/terminal/service/impl/IInitializationInclinationServiceImpl.java</url>
-          <line>208</line>
+          <line>207</line>
           <properties />
           <option name="timeStamp" value="173" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/main/java/com/renewable/terminal/rabbitmq/consumer/TerminalConsumer.java</url>
-          <line>55</line>
-          <properties />
-          <option name="timeStamp" value="196" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/com/renewable/terminal/rabbitmq/consumer/TerminalConsumer.java</url>
-          <line>57</line>
-          <properties />
-          <option name="timeStamp" value="197" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/com/renewable/terminal/rabbitmq/consumer/TerminalConsumer.java</url>
-          <line>67</line>
+          <line>63</line>
           <properties />
           <option name="timeStamp" value="199" />
         </line-breakpoint>
@@ -677,15 +840,21 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/main/java/com/renewable/terminal/rabbitmq/consumer/SerialSensorConsumer.java</url>
-          <line>50</line>
+          <line>46</line>
           <properties />
           <option name="timeStamp" value="208" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/main/java/com/renewable/terminal/rabbitmq/consumer/SerialSensorConsumer.java</url>
-          <line>58</line>
+          <line>54</line>
           <properties />
           <option name="timeStamp" value="210" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/com/renewable/terminal/service/impl/IInitializationInclinationServiceImpl.java</url>
+          <line>284</line>
+          <properties />
+          <option name="timeStamp" value="211" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-method">
           <url>jar://C:/Program Files/Java/jdk1.8.0_172/src.zip!/java/io/WinNTFileSystem.java</url>
@@ -700,9 +869,7 @@
     </breakpoint-manager>
     <watches-manager>
       <configuration name="SpringBootApplicationConfigurationType">
-        <watch expression="GuavaCache.getKey(TERMINAL_MAC)" />
-        <watch expression="terminal.getMac()" />
-        <watch expression="GuavaCache.getKey(TERMINAL_MAC) != terminal.getMac()" />
+        <watch expression="dbaServerResponse.getData()" />
       </configuration>
     </watches-manager>
   </component>
@@ -718,378 +885,438 @@
         <evaluation-mode>EXPRESSION</evaluation-mode>
       </expression>
     </expressions>
+    <expressions id="setValue">
+      <expression>
+        <expression-string>null</expression-string>
+        <language-id>JAVA</language-id>
+        <evaluation-mode>EXPRESSION</evaluation-mode>
+      </expression>
+    </expressions>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/renewable/terminal/service/IInclinationDealTotalService.java">
+    <entry file="jar://$MAVEN_REPOSITORY$/org/mybatis/spring/boot/mybatis-spring-boot-autoconfigure/2.0.1/mybatis-spring-boot-autoconfigure-2.0.1.jar!/org/mybatis/spring/boot/autoconfigure/MybatisProperties.class">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="304">
-          <caret line="19" column="19" selection-start-line="19" selection-start-column="19" selection-end-line="19" selection-end-column="19" />
+        <state relative-caret-position="163">
+          <caret line="53" column="16" selection-start-line="53" selection-start-column="16" selection-end-line="53" selection-end-column="16" />
+          <folding>
+            <element signature="e#1833#1834#0" expanded="true" />
+            <element signature="e#1887#1888#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/renewable/terminal/extend/serial/sensor/InclinationDeal526T.java">
+    <entry file="file://$PROJECT_DIR$/src/main/resources/application.yml">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="342">
-          <caret line="36" column="30" selection-start-line="36" selection-start-column="30" selection-end-line="36" selection-end-column="30" />
+        <state relative-caret-position="106">
+          <caret line="30" column="17" selection-start-line="30" selection-start-column="17" selection-end-line="30" selection-end-column="17" />
         </state>
       </provider>
     </entry>
-    <entry file="jar://C:/Program Files/Java/jdk1.8.0_172/src.zip!/javax/swing/JFrame.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/renewable/terminal/rabbitmq/consumer/TerminalConsumer.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="243">
-          <caret line="122" column="13" selection-start-line="122" selection-start-column="13" selection-end-line="122" selection-end-column="13" />
+        <state relative-caret-position="201">
+          <caret line="57" selection-start-line="57" selection-end-line="57" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/renewable/terminal/test/AudioRecorder.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/renewable/terminal/common/ServerResponse.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-2937">
-          <caret line="25" column="19" lean-forward="true" selection-start-line="25" selection-start-column="19" selection-end-line="25" selection-end-column="19" />
+        <state relative-caret-position="163">
+          <caret line="62" selection-start-line="62" selection-end-line="62" />
+          <folding>
+            <element signature="e#1379#1380#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
-    <entry file="jar://C:/Program Files/Java/jdk1.8.0_172/src.zip!/java/nio/file/Path.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/renewable/terminal/dao/AudioAmnoutMapper.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="314">
-          <caret line="97" column="17" selection-start-line="97" selection-start-column="17" selection-end-line="97" selection-end-column="17" />
+        <state relative-caret-position="247">
+          <caret line="13" column="27" selection-start-line="13" selection-start-column="27" selection-end-line="13" selection-end-column="27" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/renewable/terminal/common/constant/CacheConstant.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/renewable/terminal/util/ListUtil.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="171">
-          <caret line="9" column="4" selection-start-line="9" selection-start-column="4" selection-end-line="9" selection-end-column="54" />
+        <state relative-caret-position="161">
+          <caret line="29" selection-start-line="29" selection-end-line="29" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
-    <entry file="jar://C:/Program Files/Java/jdk1.8.0_172/src.zip!/java/lang/Thread.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/renewable/terminal/extend/driven/AudioRecorder3.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="314">
-          <caret line="263" column="37" lean-forward="true" selection-start-line="263" selection-start-column="37" selection-end-line="263" selection-end-column="37" />
+        <state relative-caret-position="-1170">
+          <caret line="17" column="13" selection-start-line="17" selection-start-column="13" selection-end-line="17" selection-end-column="13" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/renewable/terminal/dao/SerialSensorMapper.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/renewable/terminal/extend/driven/AudioRecorderPanel.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="418">
-          <caret line="25" column="17" selection-start-line="25" selection-start-column="17" selection-end-line="25" selection-end-column="17" />
+        <state relative-caret-position="496">
+          <caret line="58" column="51" selection-start-line="58" selection-start-column="51" selection-end-line="58" selection-end-column="51" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/mapper/SerialSensorMapper.xml">
+    <entry file="jar://C:/Program Files/Java/jdk1.8.0_172/src.zip!/java/security/Timestamp.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="3743">
-          <caret line="197" column="15" selection-start-line="197" selection-start-column="15" selection-end-line="197" selection-end-column="15" />
+        <state relative-caret-position="371">
+          <caret line="74" column="11" selection-start-line="74" selection-start-column="11" selection-end-line="74" selection-end-column="11" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/renewable/terminal/extend/driven/AudioConstant.java">
+    <entry file="jar://$MAVEN_REPOSITORY$/org/mybatis/mybatis/3.5.1/mybatis-3.5.1.jar!/org/apache/ibatis/plugin/Interceptor.class">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="152">
-          <caret line="8" column="54" selection-start-line="8" selection-start-column="54" selection-end-line="8" selection-end-column="54" />
+        <state relative-caret-position="114">
+          <caret line="9" column="17" selection-start-line="9" selection-start-column="17" selection-end-line="9" selection-end-column="17" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/renewable/terminal/TerminalApplication.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="114">
-          <caret line="10" column="44" selection-start-line="10" selection-start-column="44" selection-end-line="10" selection-end-column="44" />
+          <caret line="10" selection-start-line="10" selection-end-line="10" selection-end-column="42" />
+          <folding>
+            <element signature="e#554#555#0" expanded="true" />
+            <element signature="e#615#616#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/renewable/terminal/dao/InclinationDealedInitMapper.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/renewable/terminal/service/IAudioAmnoutService.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="76">
-          <caret line="8" column="17" selection-start-line="8" selection-start-column="17" selection-end-line="8" selection-end-column="17" />
+        <state relative-caret-position="228">
+          <caret line="13" column="48" lean-forward="true" selection-start-line="13" selection-start-column="48" selection-end-line="13" selection-end-column="48" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/renewable/terminal/controller/backend/SerialSensorManageController.java">
+    <entry file="jar://$MAVEN_REPOSITORY$/com/baomidou/mybatis-plus-extension/3.1.2/mybatis-plus-extension-3.1.2.jar!/com/baomidou/mybatisplus/extension/service/impl/ServiceImpl.class">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="152">
-          <caret line="16" column="5" selection-start-line="16" selection-start-column="5" selection-end-line="16" selection-end-column="5" />
+        <state relative-caret-position="114">
+          <caret line="36" column="13" selection-start-line="36" selection-start-column="13" selection-end-line="36" selection-end-column="13" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/renewable/terminal/extend/driven/AudioRecorderPanel.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/renewable/terminal/service/impl/AudioAmnoutServiceImpl.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="950">
-          <caret line="57" column="42" selection-start-line="57" selection-start-column="42" selection-end-line="58" selection-end-column="65" />
+        <state relative-caret-position="247">
+          <caret line="17" column="49" lean-forward="true" selection-start-line="17" selection-start-column="49" selection-end-line="17" selection-end-column="49" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/renewable/terminal/pojo/Inclination.java">
+    <entry file="jar://$MAVEN_REPOSITORY$/com/baomidou/mybatis-plus-core/3.1.2/mybatis-plus-core-3.1.2.jar!/com/baomidou/mybatisplus/core/mapper/BaseMapper.class">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="57">
-          <caret line="5" column="9" selection-start-line="5" selection-start-column="9" selection-end-line="5" selection-end-column="9" />
+        <state relative-caret-position="38">
+          <caret line="5" column="40" lean-forward="true" selection-start-line="5" selection-start-column="40" selection-end-line="5" selection-end-column="40" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/renewable/terminal/dao/AudioDbaMapper.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="247">
+          <caret line="13" column="45" lean-forward="true" selection-start-line="13" selection-start-column="45" selection-end-line="13" selection-end-column="45" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="jar://$MAVEN_REPOSITORY$/org/springframework/spring-context/5.1.6.RELEASE/spring-context-5.1.6.RELEASE.jar!/org/springframework/stereotype/Controller.class">
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/renewable/terminal/controller/portal/InclinationDealTotalController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="8">
+          <caret line="20" column="13" selection-start-line="20" selection-start-column="13" selection-end-line="20" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/renewable/terminal/controller/portal/SensorController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="399">
+          <caret line="30" column="40" selection-start-line="30" selection-start-column="40" selection-end-line="30" selection-end-column="40" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/renewable/terminal/controller/portal/TerminalController.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="190">
-          <caret line="18" column="18" selection-start-line="18" selection-start-column="18" selection-end-line="18" selection-end-column="18" />
+          <caret line="16" column="13" selection-start-line="16" selection-start-column="13" selection-end-line="16" selection-end-column="13" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/renewable/terminal/rabbitmq/producer/TerminalProducer.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/renewable/terminal/controller/portal/SerialSensorController.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <caret selection-end-line="56" selection-end-column="1" />
+        <state relative-caret-position="190">
+          <caret line="16" column="13" selection-start-line="16" selection-start-column="13" selection-end-line="16" selection-end-column="13" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/application.yml">
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/renewable/terminal/controller/portal/SensorRegisterController.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="380">
-          <caret line="20" column="29" selection-start-line="20" selection-start-column="29" selection-end-line="20" selection-end-column="29" />
+        <state relative-caret-position="399">
+          <caret line="30" column="108" selection-start-line="30" selection-start-column="48" selection-end-line="30" selection-end-column="108" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/renewable/terminal/util/FileReaderUtil.java" />
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/renewable/terminal/extend/driven/AudioRecorder.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/renewable/terminal/configuration/SqlInterceptor.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="635">
-          <caret line="107" column="60" selection-start-line="107" selection-start-column="33" selection-end-line="107" selection-end-column="60" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://C:/Program Files/Java/jdk1.8.0_172/src.zip!/java/lang/System.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="168">
-          <caret line="333" selection-start-line="333" selection-end-line="333" />
+        <state relative-caret-position="1083">
+          <caret line="69" column="53" lean-forward="true" selection-start-line="69" selection-start-column="53" selection-end-line="69" selection-end-column="53" />
           <folding>
-            <element signature="e#11597#11598#0" expanded="true" />
+            <element signature="imports" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="jar://C:/Program Files/Java/jdk1.8.0_172/src.zip!/java/lang/ClassLoader.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/renewable/terminal/configuration/MybatisPlusConfig.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="161">
-          <caret line="507" selection-start-line="507" selection-end-line="507" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://C:/Program Files/Java/jdk1.8.0_172/src.zip!/java/util/Collections.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="168">
-          <caret line="2034" selection-start-line="2034" selection-end-line="2034" />
+        <state relative-caret-position="247">
+          <caret line="16" column="33" selection-start-line="16" selection-start-column="33" selection-end-line="16" selection-end-column="33" />
           <folding>
-            <element signature="e#83250#83251#0" expanded="true" />
+            <element signature="e#486#487#0" expanded="true" />
+            <element signature="e#536#537#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="jar://C:/Program Files/Java/jdk1.8.0_172/src.zip!/java/util/HashSet.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/renewable/terminal/configuration/CodeGenerator.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="168">
-          <caret line="219" selection-start-line="219" selection-end-line="219" />
+        <state relative-caret-position="95">
+          <caret line="17" column="13" selection-start-line="17" selection-start-column="13" selection-end-line="17" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$MAVEN_REPOSITORY$/com/baomidou/mybatis-plus-annotation/3.1.2/mybatis-plus-annotation-3.1.2.jar!/com/baomidou/mybatisplus/annotation/FieldFill.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="152">
+          <caret line="11" column="4" selection-start-line="11" selection-start-column="4" selection-end-line="11" selection-end-column="4" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$MAVEN_REPOSITORY$/com/baomidou/mybatis-plus-annotation/3.1.2/mybatis-plus-annotation-3.1.2-sources.jar!/com/baomidou/mybatisplus/annotation/FieldFill.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="292">
+          <caret line="43" column="11" selection-start-line="43" selection-start-column="11" selection-end-line="43" selection-end-column="11" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/renewable/terminal/common/constant/AudioConstant.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="285">
+          <caret line="15" column="67" selection-start-line="15" selection-start-column="31" selection-end-line="15" selection-end-column="67" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://C:/Program Files/Java/jdk1.8.0_172/src.zip!/java/io/Serializable.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="353">
+          <caret line="168" column="17" selection-start-line="168" selection-start-column="17" selection-end-line="168" selection-end-column="17" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/renewable/terminal/controller/portal/InclinationController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="152">
+          <caret line="38" column="46" lean-forward="true" selection-start-line="38" selection-start-column="46" selection-end-line="38" selection-end-column="132" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/renewable/terminal/controller/portal/InclinationDealInitController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="133">
+          <caret line="32" column="94" selection-start-line="32" selection-start-column="94" selection-end-line="32" selection-end-column="94" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$MAVEN_REPOSITORY$/com/baomidou/mybatis-plus-core/3.1.2/mybatis-plus-core-3.1.2.jar!/com/baomidou/mybatisplus/core/conditions/Wrapper.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="114">
+          <caret line="18" column="29" selection-start-line="18" selection-start-column="22" selection-end-line="18" selection-end-column="29" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$MAVEN_REPOSITORY$/com/baomidou/mybatis-plus-extension/3.1.2/mybatis-plus-extension-3.1.2.jar!/com/baomidou/mybatisplus/extension/service/IService.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="242">
+          <caret line="86" column="17" selection-start-line="86" selection-start-column="17" selection-end-line="86" selection-end-column="17" />
           <folding>
-            <element signature="e#8112#8113#0" expanded="true" />
+            <element signature="e#2794#2795#0" expanded="true" />
+            <element signature="e#2852#2853#0" expanded="true" />
           </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://C:/Program Files/Java/jdk1.8.0_172/src.zip!/java/io/ExpiringCache.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="168">
-          <caret line="98" selection-start-line="98" selection-end-line="98" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://C:/Program Files/Java/jdk1.8.0_172/src.zip!/java/util/LinkedHashMap.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="168">
-          <caret line="462" selection-start-line="462" selection-end-line="462" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://C:/Program Files/Java/jdk1.8.0_172/src.zip!/java/util/HashMap.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="225">
-          <caret line="862" selection-start-line="862" selection-end-line="862" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://C:/Program Files/Java/jdk1.8.0_172/src.zip!/java/io/WinNTFileSystem.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="218">
-          <caret line="576" column="18" selection-start-line="576" selection-start-column="18" selection-end-line="576" selection-end-column="18" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://C:/Program Files/Java/jdk1.8.0_172/src.zip!/java/io/FileSystem.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="168">
-          <caret line="181" column="28" selection-start-line="181" selection-start-column="28" selection-end-line="181" selection-end-column="28" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://C:/Program Files/Java/jdk1.8.0_172/src.zip!/java/io/File.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="409">
-          <caret line="1396" selection-start-line="1396" selection-end-line="1396" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/renewable/terminal/extend/serial/SerialPool.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1501">
-          <caret line="91" column="34" selection-start-line="91" selection-start-column="34" selection-end-line="91" selection-end-column="34" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/renewable/terminal/rabbitmq/producer/SerialSensorProducer.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="209">
-          <caret line="28" column="28" selection-start-line="28" selection-start-column="28" selection-end-line="28" selection-end-column="28" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/renewable/terminal/taskDemo/simpleTimer.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="760">
-          <caret line="46" column="41" selection-start-line="46" selection-start-column="41" selection-end-line="46" selection-end-column="41" />
+        <state relative-caret-position="696">
+          <caret line="80" column="30" selection-start-line="80" selection-start-column="30" selection-end-line="80" selection-end-column="30" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/renewable/terminal/service/ISerialSensorService.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/renewable/terminal/service/IAudioService.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="589">
-          <caret line="34" column="19" selection-start-line="34" selection-start-column="19" selection-end-line="34" selection-end-column="19" />
+        <state relative-caret-position="285">
+          <caret line="15" column="19" selection-start-line="15" selection-start-column="19" selection-end-line="15" selection-end-column="19" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/renewable/terminal/Init/GlobalInit.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/renewable/terminal/test/NullTest.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="494">
-          <caret line="30" selection-start-line="30" selection-end-line="30" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/renewable/terminal/Init/TerminalInit.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="475">
-          <caret line="29" column="35" selection-start-line="29" selection-start-column="34" selection-end-line="29" selection-end-column="35" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/renewable/terminal/Init/SerialSensorInit.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="380">
-          <caret line="26" column="75" selection-start-line="26" selection-start-column="75" selection-end-line="26" selection-end-column="75" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/renewable/terminal/service/impl/ISerialSensorServiceImpl.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1578">
-          <caret line="187" column="35" lean-forward="true" selection-start-line="187" selection-start-column="35" selection-end-line="187" selection-end-column="35" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/renewable/terminal/extend/serial/SerialListener.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="411">
-          <caret line="94" column="88" selection-start-line="94" selection-start-column="88" selection-end-line="94" selection-end-column="88" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/renewable/terminal/service/IInclinationService.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="361">
-          <caret line="24" column="19" selection-start-line="24" selection-start-column="19" selection-end-line="24" selection-end-column="19" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/renewable/terminal/service/impl/IInclinationServiceImpl.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="306">
-          <caret line="114" column="56" selection-start-line="114" selection-start-column="56" selection-end-line="114" selection-end-column="56" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://C:/Program Files/Java/jdk1.8.0_172/jre/lib/rt.jar!/sun/net/www/MessageHeader.class">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="216">
-          <caret line="298" selection-start-line="298" selection-end-line="298" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/renewable/terminal/util/OtherUtil.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="140">
-          <caret line="128" column="48" selection-start-line="128" selection-start-column="48" selection-end-line="128" selection-end-column="48" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/renewable/terminal/extend/serial/sensor/InclinationDeal826T.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="395">
-          <caret line="138" column="63" selection-start-line="138" selection-start-column="63" selection-end-line="138" selection-end-column="63" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/renewable/terminal/rabbitmq/consumer/TerminalConsumer.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="445">
-          <caret line="61" column="8" selection-start-line="61" selection-start-column="8" selection-end-line="64" selection-end-column="9" />
+        <state relative-caret-position="342">
+          <caret line="18" column="26" selection-start-line="18" selection-start-column="26" selection-end-line="18" selection-end-column="26" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/renewable/terminal/rabbitmq/consumer/SerialSensorConsumer.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/renewable/terminal/test/NumberTest.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="559">
-          <caret line="52" column="8" selection-start-line="52" selection-start-column="8" selection-end-line="55" selection-end-column="9" />
+        <state relative-caret-position="266">
+          <caret line="14" column="44" selection-start-line="14" selection-start-column="44" selection-end-line="14" selection-end-column="44" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/renewable/terminal/rabbitmq/consumer/SensorRegisterConsumer.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/renewable/terminal/test/testVoice.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="540">
-          <caret line="120" column="8" selection-start-line="120" selection-start-column="8" selection-end-line="123" selection-end-column="9" />
+        <state relative-caret-position="152">
+          <caret line="8" column="13" selection-start-line="8" selection-start-column="13" selection-end-line="8" selection-end-column="13" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/pom.xml">
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/renewable/terminal/test/AudioRecorder.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="608">
-          <caret line="32" column="36" lean-forward="true" selection-start-line="32" selection-start-column="36" selection-end-line="32" selection-end-column="36" />
+        <state relative-caret-position="-2348">
+          <caret line="56" column="13" selection-start-line="56" selection-start-column="13" selection-end-line="56" selection-end-column="13" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/renewable/terminal/rabbitmq/consumer/InitializationInclinationConsumer.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/renewable/terminal/extend/driven/AudioRecorder.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="665">
-          <caret line="124" column="21" selection-start-line="124" selection-start-column="21" selection-end-line="124" selection-end-column="21" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://C:/Program Files/Java/jdk1.8.0_172/src.zip!/java/lang/String.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="194">
-          <caret line="2420" column="20" selection-start-line="2420" selection-start-column="20" selection-end-line="2420" selection-end-column="20" />
+        <state relative-caret-position="768">
+          <caret line="157" column="5" lean-forward="true" selection-start-line="143" selection-start-column="4" selection-end-line="157" selection-end-column="5" />
           <folding>
-            <element signature="e#94598#94599#0" expanded="true" />
-            <element signature="e#94636#94637#0" expanded="true" />
+            <element signature="imports" expanded="true" />
+            <element signature="method#getAudioFormat#0;class#AudioRecorder#0" />
+            <element signature="class#CaptureThread#0;class#AudioRecorder#0" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://C:/Program Files/Java/jdk1.8.0_172/src.zip!/java/lang/Runtime.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="159">
+          <caret line="386" column="19" selection-start-line="386" selection-start-column="19" selection-end-line="386" selection-end-column="19" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/renewable/terminal/test/ExeTest.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="175">
+          <caret line="38" column="12" selection-start-line="38" selection-start-column="12" selection-end-line="38" selection-end-column="52" />
+          <folding>
+            <element signature="imports" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/renewable/terminal/util/FileUtils.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="331">
-          <caret line="543" lean-forward="true" selection-start-line="543" selection-end-line="543" />
+        <state relative-caret-position="-186">
+          <caret line="409" column="37" selection-start-line="409" selection-start-column="26" selection-end-line="409" selection-end-column="37" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/renewable/terminal/util/openWinExeUtil.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="80">
+          <caret line="24" column="5" selection-start-line="24" selection-start-column="5" selection-end-line="24" selection-end-column="5" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/renewable/terminal/service/impl/IAudioServiceImpl.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="437">
+          <caret line="253" column="30" selection-start-line="253" selection-start-column="30" selection-end-line="253" selection-end-column="30" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/renewable/terminal/controller/portal/AudioDbaController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="536">
+          <caret line="41" column="64" selection-start-line="41" selection-start-column="64" selection-end-line="41" selection-end-column="64" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/renewable/terminal/controller/portal/AudioAmnoutController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="380">
+          <caret line="20" selection-start-line="20" selection-end-line="20" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/renewable/terminal/pojo/AudioAmnout.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="304">
+          <caret line="52" column="7" selection-start-line="52" selection-start-column="7" selection-end-line="52" selection-end-column="7" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/renewable/terminal/pojo/AudioDba.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="236">
+          <caret line="65" column="63" selection-start-line="65" selection-start-column="63" selection-end-line="65" selection-end-column="63" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/renewable/terminal/configuration/ServletInitializer.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="171">
+          <caret line="9" column="61" selection-start-line="9" selection-start-column="61" selection-end-line="9" selection-end-column="61" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/renewable/terminal/configuration/MyMetaObjectHandler.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="304">
+          <caret line="21" column="69" selection-start-line="21" selection-start-column="69" selection-end-line="21" selection-end-column="69" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/pom.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="285">
+          <caret line="15" selection-start-line="15" selection-end-line="15" />
         </state>
       </provider>
     </entry>

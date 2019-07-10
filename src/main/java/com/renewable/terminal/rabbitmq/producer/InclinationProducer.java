@@ -58,7 +58,7 @@ public class InclinationProducer {
 
 	public static ServerResponse sendInclinationTotal(List<InclinationTotal> inclinationTotalList) throws IOException, TimeoutException, InterruptedException {
 		// 1.数据校验
-		if (CollectionUtils.isEmpty(inclinationTotalList)){
+		if (CollectionUtils.isEmpty(inclinationTotalList)) {
 			return ServerResponse.createByErrorMessage("the inclinationTotal list is empty !");
 		}
 
@@ -85,7 +85,7 @@ public class InclinationProducer {
 
 	public static ServerResponse sendInclinationInit(List<InclinationInit> inclinationInitList) throws IOException, TimeoutException, InterruptedException {
 		// 1.数据校验
-		if (CollectionUtils.isEmpty(inclinationInitList)){
+		if (CollectionUtils.isEmpty(inclinationInitList)) {
 			return ServerResponse.createByErrorMessage("the iniclinaitonInit list is empty !");
 		}
 
