@@ -59,8 +59,58 @@ public class IAudioServiceImpl implements IAudioService {
 			log.error(e.toString());
 		}
 
-		// 1.复制目标音频文件到/tool目录下（确认是否会覆盖）
-		String fileName = String.valueOf(System.currentTimeMillis() / AUDIO_FILE_DURATION - 1);
+		// 1.复制目标音频文件到/tool目录下
+		ServerResponse fileOperationResponse = this.fileOperationWithAudioFile();
+		if (fileOperationResponse.isFail()){
+			return fileOperationResponse;
+		}
+
+		// 2.启动音频录制程序
+		audioRecorder.startCapture();
+
+		// 3.启动相关matlab程序
+		ServerResponse dealAudioWithMatlabResponse = this.dealAudioWithMatlab();
+		if (dealAudioWithMatlabResponse.isFail()){
+			return dealAudioWithMatlabResponse;
+		}
+
+		// 4.处理matlab程序生成的文件
+		// 4.1 dba数据采集
+
+		ServerResponse dbaServerResponse = this.file2AudioDbaList(AUDIO_TOOL_DIRECTORY_RELATIVE + AUDIO_DBA_FILE_NAME_AND_EXTENSION_NAME);
+		if (dbaServerResponse.isFail()) {
+			return dbaServerResponse;
+		}
+		List<AudioDba> audioDbaList = (List<AudioDba>) dbaServerResponse.getData();
+
+		boolean dbaSaveResult = iAudioDbaService.saveBatch(audioDbaList);
+		if (!dbaSaveResult) {
+			return ServerResponse.createByErrorMessage("dbaSave fail !");
+		}
+
+		// 数据发送中控室
+		iAudioDbaService.sendAudioAmnoutList2MQ((List<AudioDba>) dbaServerResponse.getData());
+
+		// 4.2 amnout数据采集
+		ServerResponse amnoutServerResponse = this.file2AudioAmnoutList(AUDIO_TOOL_DIRECTORY_RELATIVE + AUDIO_AMNOUT_FILE_NAME_AND_EXTENSION_NAME);
+		if (amnoutServerResponse.isFail()) {
+			return amnoutServerResponse;
+		}
+		List<AudioAmnout> audioAmnoutList = (List<AudioAmnout>) amnoutServerResponse.getData();
+
+		boolean amnoutSaveResult = iAudioAmnoutService.saveBatch(audioAmnoutList);
+		if (!amnoutSaveResult) {
+			return ServerResponse.createByErrorMessage("amnoutSave fail !");
+		}
+
+		// 数据发送中控室
+		iAudioAmnoutService.sendAudioAmnoutList2MQ((List<AudioAmnout>) amnoutServerResponse.getData());
+
+		return ServerResponse.createBySuccessMessage("the audio task has executed .");
+	}
+
+	private ServerResponse fileOperationWithAudioFile(){
+		String fileName = String.valueOf(System.currentTimeMillis() / AUDIO_FILE_DURATION - 2);
 		// 1.1 判断目标文件是否存在
 		boolean isFileExist = isFileExist(AUDIO_ORIGIN_DIRECTORY_RELATIVE + fileName + AUDIO_FILE_EXTENSION_NAME);
 		if (!isFileExist) {
@@ -91,7 +141,8 @@ public class IAudioServiceImpl implements IAudioService {
 
 
 		// 1+.判断目标音频文件是否符合筛选条件（符合则放置于文件保存目录/persistence，否则直接删除）
-		if (Long.parseLong(fileName) % 60 == 0) {
+		// 当使用两分钟间隔时，需要增加=1的判断。因为可能永远都是奇数
+		if (Long.parseLong(fileName) % 60 == 0 || Long.parseLong(fileName) % 60 == 1) {
 			File persistenceTargetFile = new File(AUDIO_PERSISTENCE_DIRECTORY_RELATIVE + fileName + AUDIO_FILE_EXTENSION_NAME);
 			try {
 				FileUtils.copy(sourceFile, persistenceTargetFile);
@@ -102,17 +153,22 @@ public class IAudioServiceImpl implements IAudioService {
 			}
 		}
 		sourceFile.delete();
+		return ServerResponse.createBySuccess();
+	}
 
-
-		// 2.启动音频录制程序
-		audioRecorder.startCapture();
-
-		// 3.启动相关matlab程序
+	private ServerResponse dealAudioWithMatlab(){
 		log.info("start matlab/wsrun.exe");
+//		String targetFilePath = AUDIO_TOOL_DIRECTORY_RELATIVE + AUDIO_TOOL_APPLICATION_NAME + AUDIO_TOOL_EXTENSION_NAME;
 		String command = "audio\\tool\\wsrun.exe";
+//		String command = targetFilePath;
+
+//		String outputPath = AUDIO_TOOL_DIRECTORY_RELATIVE + AUDIO_TOOL_APPLICATION_NAME;
 		File outDir = new File("audio\\tool\\");
+//		File outDir = new File(AUDIO_TOOL_DIRECTORY_RELATIVE + AUDIO_TOOL_APPLICATION_NAME);
 		// 执行完matlab程序后，进行关闭
-		Long destroyTime = 1000 * 60L;
+		Long destroyTime = 1000 * 60 * 2L;
+//		Long destroyTime = AUDIO_MATLAB_DESTROY_DURATION;
+
 		try {
 			openWinExeUtil.openWinExe(command, outDir, destroyTime);
 		} catch (InterruptedException e) {
@@ -121,35 +177,7 @@ public class IAudioServiceImpl implements IAudioService {
 			return ServerResponse.createByErrorMessage(e.toString());
 		}
 		log.info("end matlab/wsrun.exe");
-
-
-		// 4.处理matlab程序生成的文件
-		// 4.1 dba数据采集
-
-		ServerResponse dbaServerResponse = this.file2AudioDbaList(AUDIO_TOOL_DIRECTORY_RELATIVE + AUDIO_DBA_FILE_NAME_AND_EXTENSION_NAME);
-		if (dbaServerResponse.isFail()) {
-			return dbaServerResponse;
-		}
-		List<AudioDba> audioDbaList = (List<AudioDba>) dbaServerResponse.getData();
-
-		boolean dbaSaveResult = iAudioDbaService.saveBatch(audioDbaList);
-		if (!dbaSaveResult) {
-			return ServerResponse.createByErrorMessage("dbaSave fail !");
-		}
-
-		// 4.2 amnout数据采集
-		ServerResponse amnoutServerResponse = this.file2AudioAmnoutList(AUDIO_TOOL_DIRECTORY_RELATIVE + AUDIO_AMNOUT_FILE_NAME_AND_EXTENSION_NAME);
-		if (amnoutServerResponse.isFail()) {
-			return amnoutServerResponse;
-		}
-		List<AudioAmnout> audioAmnoutList = (List<AudioAmnout>) amnoutServerResponse.getData();
-
-		boolean amnoutSaveResult = iAudioAmnoutService.saveBatch(audioAmnoutList);
-		if (!amnoutSaveResult) {
-			return ServerResponse.createByErrorMessage("amnoutSave fail !");
-		}
-
-		return ServerResponse.createBySuccessMessage("the audio task has executed .");
+		return ServerResponse.createBySuccess();
 	}
 
 	private ServerResponse file2AudioDbaList(String filePath) {
@@ -236,8 +264,8 @@ public class IAudioServiceImpl implements IAudioService {
 		audioDbaResult.setStatus(0);
 		audioDbaResult.setTerminalId(Integer.parseInt(GuavaCache.getKey(TERMINAL_ID)));
 		Long offset = new Double((audioDbaResult.getOriginTime() * 1000L)).longValue();
-		audioDbaResult.setCreateTime(new Date(System.currentTimeMillis() - 1000 * 60 + offset));
-		audioDbaResult.setUpdateTime(new Date(System.currentTimeMillis() - 1000 * 60 + offset));
+		audioDbaResult.setCreateTime(new Date(System.currentTimeMillis() - AUDIO_DATE_OFFSET + offset));
+		audioDbaResult.setUpdateTime(new Date(System.currentTimeMillis() - AUDIO_DATE_OFFSET+ offset));
 
 		return audioDbaResult;
 	}
@@ -251,8 +279,8 @@ public class IAudioServiceImpl implements IAudioService {
 		audioAmnoutResult.setStatus(0);
 		audioAmnoutResult.setTerminalId(Integer.parseInt(GuavaCache.getKey(TERMINAL_ID)));
 		Long offset = new Double((audioAmnoutResult.getOriginTime() * 1000L)).longValue();
-		audioAmnoutResult.setCreateTime(new Date(System.currentTimeMillis() - 1000 * 60 + offset));
-		audioAmnoutResult.setUpdateTime(new Date(System.currentTimeMillis() - 1000 * 60 + offset));
+		audioAmnoutResult.setCreateTime(new Date(System.currentTimeMillis() - AUDIO_DATE_OFFSET + offset));
+		audioAmnoutResult.setUpdateTime(new Date(System.currentTimeMillis() - AUDIO_DATE_OFFSET + offset));
 
 		return audioAmnoutResult;
 	}

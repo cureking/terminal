@@ -87,6 +87,7 @@ com\renewable\terminal\Init\GlobalInit.class
 com\renewable\terminal\rabbitmq\producer\TerminalProducer.class
 com\renewable\terminal\extend\driven\AudioRecorderPanel$1.class
 com\renewable\terminal\test\testVoice.class
+com\renewable\terminal\rabbitmq\producer\AudioProducer.class
 com\renewable\terminal\extend\serial\sensor\InclinationDeal826TTemp.class
 com\renewable\terminal\controller\portal\WarningController.class
 com\renewable\terminal\common\constant\AudioConstant.class
@@ -119,6 +120,7 @@ com\renewable\terminal\exception\serial\TooManyListeners.class
 com\renewable\terminal\dao\AudioAmnoutMapper.class
 com\renewable\terminal\common\sensor\InclinationConst.class
 com\renewable\terminal\extend\driven\AudioRecorder3.class
+com\renewable\terminal\rabbitmq\pojo\SerialSensorRefresh.class
 com\renewable\terminal\service\impl\IAudioServiceImpl.class
 com\renewable\terminal\util\NetIndentificationUtil.class
 com\renewable\terminal\service\ISensorService.class
@@ -161,3 +163,4 @@ com\renewable\terminal\pojo\Sensor.class
 com\renewable\terminal\service\impl\AudioAmnoutServiceImpl.class
 com\renewable\terminal\test\NumberTest.class
 com\renewable\terminal\common\Const.class
+com\renewable\terminal\configuration\ScheduleConfig.class

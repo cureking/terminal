@@ -18,6 +18,7 @@ import org.springframework.stereotype.Component;
 import java.io.IOException;
 import java.util.Map;
 
+import static com.renewable.terminal.common.constant.CacheConstant.TERMINAL_ID;
 import static com.renewable.terminal.common.constant.CacheConstant.TERMINAL_MAC;
 
 /**
@@ -35,29 +36,37 @@ public class TerminalConsumer {
 	private SerialSensorInit serialSensorInit;
 
 
-	private static final String TERMINAL_CONFIG_TERMINAL2CENTCONTROL_EXCHANGE = "exchange-terminal-config-centcontrol2terminal";
-	private static final String TERMINAL_CONFIG_TERMINAL2CENTCONTROL_QUEUE = "queue-terminal-config-centcontrol2terminal";
-	private static final String TERMINAL_CONFIG_TERMINAL2CENTCONTROL_ROUTINETYPE = "topic";
-	private static final String TERMINAL_CONFIG_TERMINAL2CENTCONTROL_BINDINGKEY = "terminal.config.centcontrol2terminal";
+	private static final String TERMINAL_CONFIG_CENTCONTROL2TERMINAL_EXCHANGE = "exchange-terminal-config-centcontrol2terminal";
+	private static final String TERMINAL_CONFIG_CENTCONTROL2TERMINAL_QUEUE = "queue-terminal-config-centcontrol2terminal";
 
-	//TODO_FINISHED 2019.05.16 完成终端机TerminalConfig的接收与判断（ID是否为长随机数，是否需要重新分配）
 	@RabbitListener(bindings = @QueueBinding(
-			value = @Queue(value = TERMINAL_CONFIG_TERMINAL2CENTCONTROL_QUEUE, declare = "true"),
-			exchange = @Exchange(value = TERMINAL_CONFIG_TERMINAL2CENTCONTROL_EXCHANGE, declare = "true", type = TERMINAL_CONFIG_TERMINAL2CENTCONTROL_ROUTINETYPE),
-			key = TERMINAL_CONFIG_TERMINAL2CENTCONTROL_BINDINGKEY
+			value = @Queue(value = TERMINAL_CONFIG_CENTCONTROL2TERMINAL_QUEUE),
+			exchange = @Exchange(value = TERMINAL_CONFIG_CENTCONTROL2TERMINAL_EXCHANGE)
 	))
-	@RabbitHandler
-	public void messageOnTerminal(@Payload String terminalStr, @Headers Map<String, Object> headers, Channel channel) throws IOException {
+	public void messageOnTerminal(String terminalStr,
+								  @Headers Map<String, Object> headers, Channel channel) throws IOException {
+
+		log.info("TerminalConsumer/messageOnTerminal has received: {}", terminalStr);
 
 		Terminal terminal = JsonUtil.string2Obj(terminalStr, Terminal.class);
-		if (terminal == null) {
-			log.info("consume the null terminal config !");
+//		if (terminal == null || terminal.getMac() == null) {
+//			log.info("consume the null terminal config !");
+//			Long deliveryTag = (Long) headers.get(AmqpHeaders.DELIVERY_TAG);
+//			channel.basicAck(deliveryTag, false);
+//		}
+
+		if (terminal == null){
+			log.warn("TerminalConsumer/messageOnTerminal has ack terminal. terminal:{}.",terminal.toString());
 			Long deliveryTag = (Long) headers.get(AmqpHeaders.DELIVERY_TAG);
 			channel.basicAck(deliveryTag, false);
-		}
-		if (!GuavaCache.getKey(TERMINAL_MAC).equals(terminal.getMac())) {
-			log.info("refuse target terminal with mac({}) configure to this terminal with mac({}).", terminal.getMac(), GuavaCache.getKey(TERMINAL_MAC));
 			return;
+		}
+
+		if (Integer.parseInt(GuavaCache.getKey(TERMINAL_ID)) != terminal.getId()) {
+			if (!GuavaCache.getKey(TERMINAL_MAC).equals(terminal.getMac())){
+				log.info("refuse target terminal with id({}) and mac({}) configure to this terminal with id({}) and mac({}).", terminal.getId(), terminal.getMac(), GuavaCache.getKey(TERMINAL_ID), GuavaCache.getKey(TERMINAL_MAC));
+				return;
+			}
 		}
 
 		// 2.业务逻辑
@@ -69,6 +78,8 @@ public class TerminalConsumer {
 
 		// 3.确认
 		if (response.isSuccess()) {
+			// 4.日志记录
+			log.info("the terminal from centcontrol has consumed . the terminal is {}", terminal.toString());
 			Long deliveryTag = (Long) headers.get(AmqpHeaders.DELIVERY_TAG);
 			channel.basicAck(deliveryTag, false);
 		}

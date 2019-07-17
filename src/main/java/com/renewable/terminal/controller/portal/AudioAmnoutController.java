@@ -1,5 +1,7 @@
 package com.renewable.terminal.controller.portal;
 
+import com.baomidou.mybatisplus.core.conditions.Wrapper;
+import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.baomidou.mybatisplus.core.metadata.IPage;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.renewable.terminal.common.ServerResponse;
@@ -34,6 +36,25 @@ public class AudioAmnoutController {
 		return ServerResponse.createBySuccess(audioAmnoutIPage);
 	}
 
+	@RequestMapping(value = "list_time.do", method = RequestMethod.GET)
+	@ResponseBody
+	public ServerResponse listByTime(@RequestParam(value = "pageNum", defaultValue = "1") int pageNum,
+									 @RequestParam(value = "pageSize", defaultValue = "10") int pageSize,
+									 @RequestParam(value = "startTime", defaultValue = "1970-1-1 0:0:0") String startTime,
+									 @RequestParam(value = "endTime", defaultValue = "2100-03-14 11:33:54") String endTime) {
+		Page<AudioAmnout> audioAmnoutPage = new Page<>();
+		audioAmnoutPage.setCurrent(pageNum);
+		audioAmnoutPage.setSize(pageSize);
+
+		Wrapper<AudioAmnout> audioAmnoutWrapper = new QueryWrapper<AudioAmnout>().between("create_time",startTime,endTime);
+
+		IPage<AudioAmnout> audioAmnoutIPage = iAudioAmnoutService.page(audioAmnoutPage,audioAmnoutWrapper );
+		if (audioAmnoutIPage == null || audioAmnoutIPage.getSize() == 0) {
+			return ServerResponse.createByErrorMessage("audioAmnoutList is null or audioAmnoutList's size is zero !");
+		}
+		return ServerResponse.createBySuccess(audioAmnoutIPage);
+	}
+
 	@RequestMapping(value = "get_by_id.do", method = RequestMethod.GET)
 	@ResponseBody
 	public ServerResponse getById(@RequestParam(value = "id", defaultValue = "1") Integer id) {
@@ -53,4 +74,6 @@ public class AudioAmnoutController {
 		}
 		return ServerResponse.createBySuccess(count);
 	}
+
+
 }

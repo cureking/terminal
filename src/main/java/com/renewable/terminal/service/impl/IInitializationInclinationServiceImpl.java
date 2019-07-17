@@ -246,18 +246,7 @@ public class IInitializationInclinationServiceImpl implements IInitializationInc
 		List<InitializationInclination> initializationInclinationUploadeList = initializationInclinationList;
 
 		// 3.发送数据
-		try {
-			initializationProducer.sendInitializationInclination(initializationInclinationUploadeList);
-		} catch (IOException e) {
-			log.error("IOException:{}", e);
-			return ServerResponse.createByErrorMessage("IOException: " + e.toString());
-		} catch (TimeoutException e) {
-			log.error("TimeoutException:{}", e);
-			return ServerResponse.createByErrorMessage("IOException: " + e.toString());
-		} catch (InterruptedException e) {
-			log.error("InterruptedException:{}", e);
-			return ServerResponse.createByErrorMessage("IOException: " + e.toString());
-		}
+		initializationProducer.sendInitializationInclinationList(initializationInclinationUploadeList);
 
 		return ServerResponse.createBySuccessMessage("the initializationInclination has sended to MQ .");
 	}

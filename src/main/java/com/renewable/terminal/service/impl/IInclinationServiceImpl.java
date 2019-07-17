@@ -162,7 +162,7 @@ public class IInclinationServiceImpl implements IInclinationService {
 				initializationInclination.getTotalAngleLimit() == null || initializationInclination.getTotalInitAngleLimit() == null ||
 				initializationInclination.getInitX() == null || initializationInclination.getInitY() == null) {
 			// 以后可以改变表内state字段，不用每次的都判断
-			log.error("initializationInclination with serialSensorId = {} is null ! please input theinitializationInclination", ((SerialSensor) serialSensorResponse.getData()).getId());
+			log.error("initializationInclination with serialSensorId = {} need input ! please input theinitializationInclination", ((SerialSensor) serialSensorResponse.getData()).getId());
 			return ServerResponse.createByErrorMessage(InitializationConstant.InitializationStatusEnum.codeOf(InitializationConstant.InitializationStatusEnum.USE.getCode()).getValue());
 		}
 

@@ -145,18 +145,7 @@ public class IWarningServiceImpl extends ServiceImpl<WarningMapper, Warning> imp
 			return insertResponse;
 		}
 		// 4.2上传服务调用
-		try {
-			warningProducer.sendWarning(incliantionInitWarningList);
-		} catch (IOException e) {
-			log.info("IOException:" + e);
-			return ServerResponse.createByErrorMessage("inclinationInit warning try send to MQ but fail !");
-		} catch (TimeoutException e) {
-			log.info("TimeoutException:" + e);
-			return ServerResponse.createByErrorMessage("inclinationInit warning try send to MQ but fail !");
-		} catch (InterruptedException e) {
-			log.info("InterruptedException:" + e);
-			return ServerResponse.createByErrorMessage("inclinationInit warning try send to MQ but fail !");
-		}
+		warningProducer.sendWarningList(incliantionInitWarningList);
 
 		return ServerResponse.createBySuccessMessage("inclinationInit warning has dealed(persistent,uploaded.etc) !");
 	}

@@ -45,6 +45,8 @@ public class AudioRecorder {
 			return;
 		}
 		targetDataLine.stop();
+		// 也许用了fulsh会好一些
+		targetDataLine.flush();
 		targetDataLine.close();
 	}
 

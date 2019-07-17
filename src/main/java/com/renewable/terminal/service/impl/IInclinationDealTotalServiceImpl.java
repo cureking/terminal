@@ -74,7 +74,7 @@ public class IInclinationDealTotalServiceImpl implements IInclinationDealTotalSe
 		return inclinationDealedTotal;
 	}
 
-
+	@Override
 	public ServerResponse<List<Object>> getDataListByTime(String startTime, String endTime, int sensor_identifier) {
 		List<InclinationDealedTotal> inclinationList = inclinationDealedTotalMapper.selectListByTime(DateTimeUtil.strToDate(startTime), DateTimeUtil.strToDate(endTime), sensor_identifier);
 		List<Object> inclinationVoObjectList = Lists.newArrayList();
@@ -99,21 +99,7 @@ public class IInclinationDealTotalServiceImpl implements IInclinationDealTotalSe
 		List<InclinationTotal> inclinationTotalList = this.inclinationDealedTotalList2InclinationTotalList(uploadedInclinationDealedTotalList).getData();         //这种转换放在该服务层，还是MQ的调用层，我觉得应该放在这里，但是InclinationTotal又该放在哪里呢？想想，还是将转换放在放在这里，pojo放在Vo或者BO，又或者rabbitmq下。
 
 		// 正确的做法，这里需要进行事务级的控制，确保数据在这里不会因为MQ发送失败，造成数据丢失（RabbitMQ也有自己消息的事务控制，可以了解）
-		try {
-			ServerResponse response = inclinationProducer.sendInclinationTotal(inclinationTotalList);
-			if (response.isFail()) {
-				return response;
-			}
-		} catch (IOException e) {
-			log.info("IOException:" + e);
-			return ServerResponse.createByErrorMessage("Inclination data try send to MQ but fail !");
-		} catch (TimeoutException e) {
-			log.info("TimeoutException:" + e);
-			return ServerResponse.createByErrorMessage("Inclination data try send to MQ but fail !");
-		} catch (InterruptedException e) {
-			log.info("InterruptedException:" + e);
-			return ServerResponse.createByErrorMessage("Inclination data try send to MQ but fail !");
-		}
+		inclinationProducer.sendInclinationTotalList(inclinationTotalList);
 
 		// 当上述操作没有出现问题，这里可以将之前的那些数据在数据库的状态修改
 		int countRow = inclinationDealedTotalMapper.updateVersionBatch(uploadedInclinationDealedTotalList);

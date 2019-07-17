@@ -2,6 +2,7 @@ package com.renewable.terminal.service;
 
 import com.renewable.terminal.common.ServerResponse;
 import com.renewable.terminal.pojo.SerialSensor;
+import com.renewable.terminal.rabbitmq.pojo.SerialSensorRefresh;
 
 import java.util.List;
 
@@ -30,6 +31,8 @@ public interface ISerialSensorService {
 	ServerResponse sendSerialSensor2MQ(List<SerialSensor> serialSensorList);
 
 	ServerResponse receiveSerialSensorFromMQ(SerialSensor serialSensor);
+
+	ServerResponse receiveSerialSensorRefreshFromMQ(SerialSensorRefresh serialSensorRefresh);
 
 	// 定时任务-读取终端数据
 	ServerResponse taskLoadFromSerialSensor();

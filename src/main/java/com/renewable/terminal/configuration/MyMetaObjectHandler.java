@@ -15,19 +15,19 @@ import java.util.Date;
 public class MyMetaObjectHandler implements MetaObjectHandler {
 	@Override
 	public void insertFill(MetaObject metaObject) {
-		// 要配合    @TableField(value = "update_time", fill = FieldFill.INSERT_UPDATE)等注解使用，才有效果
+		// 要配合    @TableField(value = "update_time", fill = FieldFill.INSERT_UPDATE)等注解使用，才有效果		// 貌似又不需要了。。
 
-		log.info("start insert fill ....");
-		this.setFieldValByName("createBy", "admin", metaObject);
-		this.setFieldValByName("createTime", new Date(), metaObject);
+//		log.info("start insert fill ....");
+//		this.setFieldValByName("createBy", "admin", metaObject);
+//		this.setFieldValByName("createTime", new Date(), metaObject);
 //        log.info(metaObject.getValue("createTime").toString());
 
 	}
 
 	@Override
 	public void updateFill(MetaObject metaObject) {
-		log.info("start update fill ....");
-		this.setFieldValByName("updateBy", "admin", metaObject);
+//		log.info("start update fill ....");
+//		this.setFieldValByName("updateBy", "admin", metaObject);
 		this.setFieldValByName("updateTime", new Date(), metaObject);
 	}
 }

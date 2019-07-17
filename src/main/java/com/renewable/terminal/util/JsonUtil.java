@@ -20,8 +20,10 @@ import java.text.SimpleDateFormat;
 @Slf4j
 public class JsonUtil {
 
+	// 建立Jackson的ObjectMapper对象
 	private static ObjectMapper objectMapper = new ObjectMapper();
 
+	// 建立Json操作中的日期格式
 	private static final String JSON_STANDARD_FORMAT = "yyyy-MM-dd HH:mm:ss";
 	// DateTimeUtil.STANDARD_FORMAT = "yyyy-mm-dd HH:mm:ss";    // 日期格式如果设置为这个，会出现月份出错的问题（先是5月变3月，然后就不断增加，甚至超过12月），具体原因待查
 
@@ -36,7 +38,7 @@ public class JsonUtil {
 		//忽略空Bean转json的错误
 		objectMapper.configure(SerializationConfig.Feature.FAIL_ON_EMPTY_BEANS, false);
 
-		//所有的日期格式都统一为以下的样式，即yyyy-MM-dd HH:mm:ss
+		//所有的日期格式都统一为以下的样式
 		objectMapper.setDateFormat(new SimpleDateFormat(JSON_STANDARD_FORMAT));
 
 		//反序列化
@@ -44,6 +46,12 @@ public class JsonUtil {
 		objectMapper.configure(DeserializationConfig.Feature.FAIL_ON_UNKNOWN_PROPERTIES, false);
 	}
 
+	/**
+	 * 完成对象序列化为字符串
+	 * @param obj 源对象
+	 * @param <T>
+	 * @return
+	 */
 	public static <T> String obj2String(T obj) {
 		if (obj == null) {
 			return null;
@@ -56,6 +64,12 @@ public class JsonUtil {
 		}
 	}
 
+	/**
+	 * 完成对象序列化为字符串，但是字符串会保证一定的结构性（提高可读性，增加字符串大小）
+	 * @param obj 源对象
+	 * @param <T>
+	 * @return
+	 */
 	public static <T> String obj2StringPretty(T obj) {
 		if (obj == null) {
 			return null;
@@ -68,6 +82,13 @@ public class JsonUtil {
 		}
 	}
 
+	/**
+	 * 完成字符串反序列化为对象
+	 * @param str 源字符串
+	 * @param clazz 目标对象的Class
+	 * @param <T>
+	 * @return
+	 */
 	public static <T> T string2Obj(String str, Class<T> clazz) {
 		if (StringUtils.isEmpty(str) || clazz == null) {
 			return null;
@@ -86,8 +107,8 @@ public class JsonUtil {
 	/**
 	 * 进行复杂类型反序列化工作 （自定义类型的集合类型）
 	 *
-	 * @param str
-	 * @param typeReference
+	 * @param str 源字符串
+	 * @param typeReference 包含elementType与CollectionType的typeReference
 	 * @param <T>
 	 * @return
 	 */

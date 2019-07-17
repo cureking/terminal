@@ -11,11 +11,13 @@ import com.renewable.terminal.extend.serial.SerialPool;
 import com.renewable.terminal.extend.serial.sensor.InclinationDeal526T;
 import com.renewable.terminal.extend.serial.sensor.InclinationDeal826T;
 import com.renewable.terminal.pojo.SerialSensor;
+import com.renewable.terminal.rabbitmq.pojo.SerialSensorRefresh;
 import com.renewable.terminal.rabbitmq.producer.SerialSensorProducer;
 import com.renewable.terminal.service.ISerialSensorService;
 import com.renewable.terminal.util.SerialPortUtil;
 import gnu.io.SerialPort;
 import lombok.extern.slf4j.Slf4j;
+import org.apache.commons.lang3.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -227,6 +229,29 @@ public class ISerialSensorServiceImpl implements ISerialSensorService {
 		}
 
 		return ServerResponse.createBySuccessMessage("the serialSensor has inserted .");
+	}
+
+	@Override
+	public ServerResponse receiveSerialSensorRefreshFromMQ(SerialSensorRefresh serialSensorRefresh) {
+		if (serialSensorRefresh == null){
+			return ServerResponse.createByErrorMessage("serialSensorRefresh is null !");
+		}
+		Integer sensorRegisterId = serialSensorRefresh.getSensorRegisterId();
+		if (sensorRegisterId == null){
+			return ServerResponse.createByErrorMessage("the sensorRegisterId of serialSensorRefresh is null ! serialSensorRefresh:"+serialSensorRefresh.toString());
+		}
+		String type = serialSensorRefresh.getType();
+		if (StringUtils.isBlank(type)){
+			return ServerResponse.createByErrorMessage("the type of serialSensorRefresh is null ! serialSensorRefresh:"+serialSensorRefresh.toString());
+		}
+
+		// 调用置零服务
+		ServerResponse zeroResetResponse = this.zeroReset(sensorRegisterId, type);
+		if (zeroResetResponse.isFail()){
+			return zeroResetResponse;
+		}
+
+		return ServerResponse.createBySuccess();
 	}
 
 	@Override

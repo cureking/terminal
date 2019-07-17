@@ -219,7 +219,7 @@ public class InclinationDeal526T {
 
 		//这里可以解耦
 		int data_0 = Const.SensorEnum.Inclination1.getCode();
-		int data_1 = 4;
+		int data_1 = 5;
 		int data_2 = address;
 		int data_3 = command;
 		int data_4 = data;
@@ -235,7 +235,7 @@ public class InclinationDeal526T {
 		originArray.set(1, originArray.size());
 
 		//计算校验和     校验和是不计算标示符（不计算第一位）与自身的（不计算最后一位）
-		for (int j = 1; j < originArray.size() - 1; j++) {
+		for (int j = 1; j < originArray.size(); j++) {
 			data_5 += originArray.get(j);
 		}
 		originArray.add(data_5);

@@ -1,62 +1,54 @@
 package com.renewable.terminal.rabbitmq.producer;
 
-
-import com.rabbitmq.client.Channel;
-import com.rabbitmq.client.Connection;
-import com.rabbitmq.client.ConnectionFactory;
-import com.rabbitmq.client.MessageProperties;
+import com.renewable.terminal.pojo.AudioAmnout;
+import com.renewable.terminal.pojo.AudioDba;
 import com.renewable.terminal.pojo.InitializationInclination;
 import com.renewable.terminal.util.JsonUtil;
+import lombok.extern.slf4j.Slf4j;
+import org.springframework.amqp.core.AmqpTemplate;
+import org.springframework.amqp.core.Message;
+import org.springframework.amqp.core.MessageProperties;
+import org.springframework.amqp.rabbit.annotation.Exchange;
+import org.springframework.amqp.rabbit.annotation.Queue;
+import org.springframework.amqp.rabbit.annotation.QueueBinding;
+import org.springframework.amqp.rabbit.annotation.RabbitListener;
+import org.springframework.amqp.rabbit.core.RabbitTemplate;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
-import java.io.IOException;
+import java.util.Date;
 import java.util.List;
-import java.util.concurrent.TimeoutException;
 
 /**
  * @Description：
  * @Author: jarry
  */
 @Component("InitializationProducer")
+@Slf4j
 public class InitializationProducer {
 
-	private static String rabbitmqHost = "47.92.249.250";
-	private static String rabbitmqUser = "admin";
-	private static String rabbitmqPassword = "123456";
-	private static String rabbitmqPort = "5672";
+	@Autowired
+	private AmqpTemplate amqpTemplate;
 
-	private static final String IP_ADDRESS = rabbitmqHost;
-	private static final int PORT = Integer.parseInt(rabbitmqPort);
-	private static final String USER_NAME = rabbitmqUser;
-	private static final String USER_PASSWORD = rabbitmqPassword;
-
-	// 目前业务规模还很小，没必要设置太复杂的命名规则与路由规则。不过，可以先保留topic的路由策略，便于日后扩展。
+	// 从声音模块开始，简化消息机制（不需要使用复杂的路由规则）
+	// 发送传感器数据，全部采用List
 	// inclinationTotal 相关配置
-	private static final String INITIALIZATION_INCLINATION_TERMINAL2CENTCONTROL_EXCHANGE = "exchange-initialization-inclination-centcontrol2terminal";
-	private static final String INITIALIZATION_INCLINATION_TERMINAL2CENTCONTROL_QUEUE = "queue-initialization-inclination-centcontrol2terminal";
-	private static final String INITIALIZATION_INCLINATION_TERMINAL2CENTCONTROL_ROUTINETYPE = "topic";
-	private static final String INITIALIZATION_INCLINATION_TERMINAL2CENTCONTROL_BINDINGKEY = "sensor.initialization.inclination.centcontrol2terminal";
-	private static final String INITIALIZATION_INCLINATION_TERMINAL2CENTCONTROL_ROUTINGKEY = "sensor.initialization.inclination.centcontrol2terminal";
+	private static final String INITIALIZATION_INCLINATION_TERMINAL2CENTCONTROL_EXCHANGE = "exchange-initialization-inclination-terminal2centcontrol";
+	private static final String INITIALIZATION_INCLINATION_TERMINAL2CENTCONTROL_QUEUE = "queue-initialization-inclination-terminal2centcontrol";
 
-	public static void sendInitializationInclination(List<InitializationInclination> initializationInclinationList) throws IOException, TimeoutException, InterruptedException {
-		ConnectionFactory factory = new ConnectionFactory();
-		factory.setHost(IP_ADDRESS);
-		factory.setPort(PORT);
-		factory.setUsername(USER_NAME);
-		factory.setPassword(USER_PASSWORD);
+	@RabbitListener(bindings = @QueueBinding(
+			value = @Queue(INITIALIZATION_INCLINATION_TERMINAL2CENTCONTROL_QUEUE),
+			exchange = @Exchange(INITIALIZATION_INCLINATION_TERMINAL2CENTCONTROL_EXCHANGE)
+	))
+	public void sendInitializationInclinationList(String initializationInclinationListStr) {
 
-		Connection connection = factory.newConnection();
+		log.info("InitializationProducer/sendInitializationInclinationList has sended: {}", initializationInclinationListStr);
 
-		Channel channel = connection.createChannel();
-		channel.exchangeDeclare(INITIALIZATION_INCLINATION_TERMINAL2CENTCONTROL_EXCHANGE, INITIALIZATION_INCLINATION_TERMINAL2CENTCONTROL_ROUTINETYPE, true, false, null);      // String exchange, String type, boolean durable, boolean autoDelete, Map<String, Object> arguments
-		channel.queueDeclare(INITIALIZATION_INCLINATION_TERMINAL2CENTCONTROL_QUEUE, true, false, false, null);               // String queue, boolean durable, boolean exclusive, boolean autoDelete, Map<String, Object> arguments
-		channel.queueBind(INITIALIZATION_INCLINATION_TERMINAL2CENTCONTROL_QUEUE, INITIALIZATION_INCLINATION_TERMINAL2CENTCONTROL_EXCHANGE, INITIALIZATION_INCLINATION_TERMINAL2CENTCONTROL_BINDINGKEY);
+		amqpTemplate.convertAndSend(INITIALIZATION_INCLINATION_TERMINAL2CENTCONTROL_QUEUE, initializationInclinationListStr);
+	}
 
-		String initializationInclinationListStr = JsonUtil.obj2StringPretty(initializationInclinationList);
-		channel.basicPublish(INITIALIZATION_INCLINATION_TERMINAL2CENTCONTROL_EXCHANGE, INITIALIZATION_INCLINATION_TERMINAL2CENTCONTROL_ROUTINGKEY, MessageProperties.PERSISTENT_TEXT_PLAIN, initializationInclinationListStr.getBytes());
-
-		channel.close();
-		connection.close();
+	public void sendInitializationInclinationList(List<InitializationInclination> initializationInclinationList) {
+		this.sendInitializationInclinationList(JsonUtil.obj2String(initializationInclinationList));
 	}
 
 }

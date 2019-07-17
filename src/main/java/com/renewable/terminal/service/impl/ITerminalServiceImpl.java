@@ -107,6 +107,8 @@ public class ITerminalServiceImpl implements ITerminalService {
 		terminalUpdate.setId(terminal.getId());
 		terminalUpdate.setName(terminal.getName());
 		terminalUpdate.setUpdateTime(new Date());
+		// 必须要有mac，中控才可以更新数据
+		terminalUpdate.setMac(GuavaCache.getKey(TERMINAL_MAC));
 
 		// 3.更新数据
 		Integer countUpdate = terminalMapper.updateByPrimaryKeySelective(terminalUpdate);
@@ -226,18 +228,14 @@ public class ITerminalServiceImpl implements ITerminalService {
 
 	private ServerResponse uploadTerminalConfig(Terminal terminal) {
 		System.out.println("upload terminalConfig start !");
-		try {
-			terminalProducer.sendTerminalConfig(terminal);
-		} catch (IOException e) {
-			log.error("terminal config upload fail ! " + e);
-			return ServerResponse.createByErrorMessage("terminal config upload fail ! " + e);
-		} catch (TimeoutException e) {
-			log.error("terminal config upload fail ! " + e);
-			return ServerResponse.createByErrorMessage("terminal config upload fail ! " + e);
-		} catch (InterruptedException e) {
-			log.error("terminal config upload fail ! " + e);
-			return ServerResponse.createByErrorMessage("terminal config upload fail ! " + e);
+
+		// 由于中控室那边是根据mac确定身份的，所以一定要有mac
+		if (terminal.getMac() == null){
+			log.warn("mac of terminal is null ! terminal:{}.", terminal.toString());
 		}
+
+		terminalProducer.sendTerminal(terminal);
+
 		return ServerResponse.createBySuccessMessage("terminal config upload success");
 	}
 }

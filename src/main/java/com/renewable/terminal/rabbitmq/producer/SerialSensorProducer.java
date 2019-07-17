@@ -2,6 +2,8 @@ package com.renewable.terminal.rabbitmq.producer;
 
 import com.renewable.terminal.pojo.SerialSensor;
 import com.renewable.terminal.util.JsonUtil;
+import lombok.extern.slf4j.Slf4j;
+import org.springframework.amqp.core.AmqpTemplate;
 import org.springframework.amqp.core.Message;
 import org.springframework.amqp.core.MessageProperties;
 import org.springframework.amqp.rabbit.annotation.Exchange;
@@ -19,71 +21,25 @@ import java.util.List;
  * @Author: jarry
  */
 @Component("SerialSensorProducer")
+@Slf4j
 public class SerialSensorProducer {
-//
-//	private static String rabbitmqHost = "47.92.249.250";
-//	private static String rabbitmqUser = "admin";
-//	private static String rabbitmqPassword = "123456";
-//	private static String rabbitmqPort = "5672";
-//
-//	private static final String IP_ADDRESS = rabbitmqHost;
-//	private static final int PORT = Integer.parseInt(rabbitmqPort);
-//	private static final String USER_NAME = rabbitmqUser;
-//	private static final String USER_PASSWORD = rabbitmqPassword;
-//
-//
-//	private static final String SERIAL_SENSOR_TERMINAL2CENTCONTROL_EXCHANGE = "exchange-serial-sensor-terminal2centcontrol";
-//	private static final String SERIAL_SENSOR_TERMINAL2CENTCONTROL_QUEUE = "queue-serial-sensor-terminal2centcontrol";
-//	private static final String SERIAL_SENSOR_TERMINAL2CENTCONTROL_ROUTINETYPE = "topic";
-//	private static final String SERIAL_SENSOR_TERMINAL2CENTCONTROL_BINDINGKEY = "serial.sensor.terminal2centcontrol";
-//	private static final String SERIAL_SENSOR_TERMINAL2CENTCONTROL_ROUTINGKEY = "serial.sensor.terminal2centcontrol";
-//
-//	public static void sendSerialSensor(List<SerialSensor> serialSensorList) throws IOException, TimeoutException, InterruptedException {
-//
-//		ConnectionFactory factory = new ConnectionFactory();
-//		factory.setHost(IP_ADDRESS);
-//		factory.setPort(PORT);
-//		factory.setUsername(USER_NAME);
-//		factory.setPassword(USER_PASSWORD);
-//
-//		Connection connection = factory.newConnection();
-//		Channel channel = connection.createChannel();
-//		channel.exchangeDeclare(SERIAL_SENSOR_TERMINAL2CENTCONTROL_EXCHANGE, SERIAL_SENSOR_TERMINAL2CENTCONTROL_ROUTINETYPE, true, false, null);
-//		channel.queueDeclare(SERIAL_SENSOR_TERMINAL2CENTCONTROL_QUEUE, true, false, false, null);
-//		channel.queueBind(SERIAL_SENSOR_TERMINAL2CENTCONTROL_QUEUE, SERIAL_SENSOR_TERMINAL2CENTCONTROL_EXCHANGE, SERIAL_SENSOR_TERMINAL2CENTCONTROL_BINDINGKEY);
-//
-//		String serialSensorListStr = JsonUtil.obj2StringPretty(serialSensorList);
-//		channel.basicPublish(SERIAL_SENSOR_TERMINAL2CENTCONTROL_EXCHANGE, SERIAL_SENSOR_TERMINAL2CENTCONTROL_ROUTINGKEY, MessageProperties.PERSISTENT_TEXT_PLAIN, serialSensorListStr.getBytes());
-//
-//		channel.close();
-//		connection.close();
-//	}
-
 
 	@Autowired
-	private RabbitTemplate rabbitTemplate;
+	private AmqpTemplate amqpTemplate;
 
 	private static final String SERIAL_SENSOR_TERMINAL2CENTCONTROL_EXCHANGE = "exchange-serial-sensor-terminal2centcontrol";
 	private static final String SERIAL_SENSOR_TERMINAL2CENTCONTROL_QUEUE = "queue-serial-sensor-terminal2centcontrol";
-	private static final String SERIAL_SENSOR_TERMINAL2CENTCONTROL_ROUTINETYPE = "topic";
-	private static final String SERIAL_SENSOR_TERMINAL2CENTCONTROL_BINDINGKEY = "serial.sensor.terminal2centcontrol";
-	private static final String SERIAL_SENSOR_TERMINAL2CENTCONTROL_ROUTINGKEY = "serial.sensor.terminal2centcontrol";
 
 	// 初始化后台相关配置（如队列等）
 	@RabbitListener(bindings = @QueueBinding(
-			value = @Queue(value = SERIAL_SENSOR_TERMINAL2CENTCONTROL_QUEUE, declare = "true"),
-			exchange = @Exchange(value = SERIAL_SENSOR_TERMINAL2CENTCONTROL_EXCHANGE, declare = "true", type = SERIAL_SENSOR_TERMINAL2CENTCONTROL_ROUTINETYPE),
-			key = SERIAL_SENSOR_TERMINAL2CENTCONTROL_BINDINGKEY
+			value = @Queue(value = SERIAL_SENSOR_TERMINAL2CENTCONTROL_QUEUE),
+			exchange = @Exchange(value = SERIAL_SENSOR_TERMINAL2CENTCONTROL_EXCHANGE)
 	))
+	public void sendSerialSensor(String serialSensorListStr){
 
-	public void sendSerialSensor(String serialSensorListStr) throws Exception {
-		org.springframework.amqp.core.MessageProperties messageProperties = new org.springframework.amqp.core.MessageProperties();
-		messageProperties.setContentType(MessageProperties.CONTENT_TYPE_TEXT_PLAIN);
-		Message message = new Message(serialSensorListStr.getBytes(), messageProperties);
+		log.info("SerialSensorProducer/sendSerialSensor has sended: {}", serialSensorListStr);
 
-		rabbitTemplate.convertAndSend(SERIAL_SENSOR_TERMINAL2CENTCONTROL_EXCHANGE,
-				SERIAL_SENSOR_TERMINAL2CENTCONTROL_ROUTINGKEY,
-				message);
+		amqpTemplate.convertAndSend(SERIAL_SENSOR_TERMINAL2CENTCONTROL_QUEUE, serialSensorListStr);
 	}
 
 	public void sendSerialSensor(List<SerialSensor> serialSensorList) throws Exception {

@@ -182,20 +182,7 @@ public class ISensorRegisterServiceImpl implements ISensorRegisterService {
 		List<SensorRegister> sensorRegisterUploadeList = sensorRegisterList;
 
 		// 3.发送数据
-		try {
-			sensorRegisterProducer.sendSensorRegister(sensorRegisterUploadeList);
-		} catch (IOException e) {
-			log.error("IOException:{}", e);
-			return ServerResponse.createByErrorMessage("IOException: " + e.toString());
-		} catch (TimeoutException e) {
-			log.error("TimeoutException:{}", e);
-			return ServerResponse.createByErrorMessage("IOException: " + e.toString());
-		} catch (InterruptedException e) {
-			log.error("InterruptedException:{}", e);
-			return ServerResponse.createByErrorMessage("IOException: " + e.toString());
-		} catch (Exception e) {
-			e.printStackTrace();
-		}
+		sensorRegisterProducer.sendSensorRegisterList(sensorRegisterUploadeList);
 
 		return ServerResponse.createBySuccessMessage("the sensorRegisterUploadeList has sended to MQ .");
 	}

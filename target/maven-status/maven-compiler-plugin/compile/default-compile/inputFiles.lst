@@ -3,6 +3,7 @@ C:\Users\curek\IdeaProjects\Renewable_Power\terminal\src\main\java\com\renewable
 C:\Users\curek\IdeaProjects\Renewable_Power\terminal\src\main\java\com\renewable\terminal\pojo\InitializationInclination.java
 C:\Users\curek\IdeaProjects\Renewable_Power\terminal\src\main\java\com\renewable\terminal\util\MatlabUtil.java
 C:\Users\curek\IdeaProjects\Renewable_Power\terminal\src\main\java\com\renewable\terminal\pojo\InclinationDealedInit.java
+C:\Users\curek\IdeaProjects\Renewable_Power\terminal\src\main\java\com\renewable\terminal\rabbitmq\pojo\SerialSensorRefresh.java
 C:\Users\curek\IdeaProjects\Renewable_Power\terminal\src\main\java\com\renewable\terminal\pojo\Sensor.java
 C:\Users\curek\IdeaProjects\Renewable_Power\terminal\src\main\java\com\renewable\terminal\extend\serial\SerialPool.java
 C:\Users\curek\IdeaProjects\Renewable_Power\terminal\src\main\java\com\renewable\terminal\util\SensorPropertiesUtil.java
@@ -31,6 +32,7 @@ C:\Users\curek\IdeaProjects\Renewable_Power\terminal\src\main\java\com\renewable
 C:\Users\curek\IdeaProjects\Renewable_Power\terminal\src\main\java\com\renewable\terminal\pojo\InclinationDealed.java
 C:\Users\curek\IdeaProjects\Renewable_Power\terminal\src\main\java\com\renewable\terminal\controller\portal\WarningController.java
 C:\Users\curek\IdeaProjects\Renewable_Power\terminal\src\main\java\com\renewable\terminal\pojo\WarningEliminate.java
+C:\Users\curek\IdeaProjects\Renewable_Power\terminal\src\main\java\com\renewable\terminal\rabbitmq\producer\AudioProducer.java
 C:\Users\curek\IdeaProjects\Renewable_Power\terminal\src\main\java\com\renewable\terminal\exception\serial\SerialPortOutputStreamCloseFailure.java
 C:\Users\curek\IdeaProjects\Renewable_Power\terminal\src\main\java\com\renewable\terminal\util\ListUtil.java
 C:\Users\curek\IdeaProjects\Renewable_Power\terminal\src\main\java\com\renewable\terminal\controller\backend\SensorManageController.java
@@ -125,6 +127,7 @@ C:\Users\curek\IdeaProjects\Renewable_Power\terminal\src\main\java\com\renewable
 C:\Users\curek\IdeaProjects\Renewable_Power\terminal\src\main\java\com\renewable\terminal\service\ISerialSensorService.java
 C:\Users\curek\IdeaProjects\Renewable_Power\terminal\src\main\java\com\renewable\terminal\service\impl\AudioDbaServiceImpl.java
 C:\Users\curek\IdeaProjects\Renewable_Power\terminal\src\main\java\com\renewable\terminal\test\testVoice.java
+C:\Users\curek\IdeaProjects\Renewable_Power\terminal\src\main\java\com\renewable\terminal\configuration\ScheduleConfig.java
 C:\Users\curek\IdeaProjects\Renewable_Power\terminal\src\main\java\com\renewable\terminal\configuration\ServletInitializer.java
 C:\Users\curek\IdeaProjects\Renewable_Power\terminal\src\main\java\com\renewable\terminal\service\IAudioDbaService.java
 C:\Users\curek\IdeaProjects\Renewable_Power\terminal\src\main\java\com\renewable\terminal\controller\backend\InitializationInclinationManageController.java
